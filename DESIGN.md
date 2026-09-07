@@ -1,4 +1,4 @@
-# Meta Pacific — Design Context
+# Meta Pacific: Design Context
 
 ## Product
 Premium creative technology studio in Bali. FPV, film, virtual tours, and growth systems for property and brand launches.
@@ -8,6 +8,8 @@ Bali developers (5+ units), villa/hospitality owners, founders, lifestyle brands
 
 ## Voice
 Direct, field-practical, unsentimental. Short sentences. Prefer concrete nouns (flight path, walkthrough, lead) over abstract claims (commercially effective, operating system).
+
+Never use em dashes. Prefer a period, comma, or a new sentence. Em dashes are an AI copy tell.
 
 ## Visual system
 - Palette: cream `#ede9de`, black `#000000`, white `#ffffff` only
