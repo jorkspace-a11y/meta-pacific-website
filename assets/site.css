@@ -168,12 +168,12 @@ nav.bar {
 }
 .hero-brand-mark {
   display: block;
-  width: min(300px, 72vw);
+  width: min(280px, 68vw);
   height: auto;
-  margin: 0 0 22px;
-  padding: 16px 20px;
+  margin: 0 0 18px;
+  padding: 10px 14px;
   background: #ffffff;
-  border-radius: 16px;
+  border-radius: 14px;
 }
 .hero h1 {
   font-family: var(--font-subhead);
