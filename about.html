@@ -26,7 +26,7 @@
       --cream: #14120e;
       --cream-raised: #1d1b15;
       --ink: #ece7dc;
-      --ink-soft: #a39c89;
+      --ink-soft: #9c9890;
       --line: #322f26;
       --signal: #4f9188;
       --signal-soft: #4f918822;
@@ -36,7 +36,7 @@
     --cream: #14120e;
     --cream-raised: #1d1b15;
     --ink: #ece7dc;
-    --ink-soft: #a39c89;
+    --ink-soft: #9c9890;
     --line: #322f26;
     --signal: #4f9188;
     --signal-soft: #4f918822;
@@ -82,9 +82,9 @@
   }
   .logo-chip {
     display: inline-flex; align-items: center; flex: none;
-    background: #ece7dc; padding: 4px 8px; border-radius: 8px;
+    background: #ece7dc; padding: 8px 14px; border-radius: 10px;
   }
-  .logo-mark { height: 32px; width: auto; display: block; }
+  .logo-mark { height: 40px; width: auto; display: block; }
   .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; }
   .nav-links a {
     text-decoration: none; font-size: 0.92rem; font-weight: 500;
@@ -264,21 +264,33 @@
   }
   .final-cta .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
 
-  /* ---------- Footer ---------- */
-  footer { border-top: 1px solid var(--line); padding: 48px 0 36px; }
-  .foot-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 30px; flex-wrap: wrap; }
-  .foot-links { display: flex; gap: 44px; flex-wrap: wrap; }
-  .foot-col { display: flex; flex-direction: column; gap: 10px; }
-  .foot-col a { font-size: 0.88rem; text-decoration: none; color: var(--ink-soft); }
-  .foot-col a:hover { color: var(--ink); }
+  /* ---------- Footer: fixed dark band regardless of page theme, like Tembo's ---------- */
+  footer { background: #14120e; padding: 88px 0 32px; }
+  .foot-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;
+    padding-bottom: 64px;
+  }
+  .foot-brand { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .foot-brand .logo-chip { background: #ece7dc; }
+  .foot-brand p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: #ece7dc99; max-width: 280px; }
+  .foot-col { display: flex; flex-direction: column; gap: 12px; }
+  .foot-col .foot-heading {
+    font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #ece7dc66; margin-bottom: 4px;
+  }
+  .foot-col a { font-size: 0.9rem; text-decoration: none; color: #ece7dcc0; }
+  .foot-col a:hover { color: #ece7dc; }
   .foot-bottom {
-    margin-top: 44px; padding-top: 20px; border-top: 1px solid var(--line);
-    display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--ink-soft);
-    flex-wrap: wrap; gap: 10px;
+    padding-top: 24px; border-top: 1px solid #ece7dc1f;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; color: #ece7dc73;
+    flex-wrap: wrap; gap: 12px;
   }
 
   @media (max-width: 880px) {
     .nav-links { display: none; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    .foot-brand { grid-column: 1 / -1; }
     .hero-top { grid-template-columns: 1fr; }
     .hero-verticals { flex-direction: row; text-align: left; flex-wrap: wrap; }
     .pillars { grid-template-columns: 1fr 1fr; }
@@ -429,27 +441,29 @@
 
 <footer>
   <div class="wrap">
-    <div class="foot-top">
-      <span class="logo-chip"><img class="logo-mark" src="assets/logo.png" alt="Meta Pacific" style="height:38px;"></span>
-      <div class="foot-links">
-        <div class="foot-col">
-          <span class="label" style="margin-bottom:2px;">Site</span>
-          <a href="index.html#work">Work</a>
-          <a href="services.html">Services</a>
-          <a href="solutions.html">Solutions</a>
-          <a href="insights.html">Insights</a>
-        </div>
-        <div class="foot-col">
-          <span class="label" style="margin-bottom:2px;">Connect</span>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="contact.html">Contact</a>
-        </div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo-chip"><img class="logo-mark" src="assets/logo.png" alt="Meta Pacific" style="height:38px;"></span>
+        <p>Premium creative technology and growth partner, working out of Bali.</p>
+      </div>
+      <div class="foot-col">
+        <span class="foot-heading">Site</span>
+        <a href="index.html#work">Work</a>
+        <a href="services.html">Services</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-heading">Connect</span>
+        <a href="https://www.instagram.com/metapacific_/">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>Meta Pacific · Bali, Indonesia</span>
-      <span>Premium Creative Technology &amp; Growth Partner</span>
+      <span>Meta Pacific &copy; 2026</span>
+      <span>Bali, Indonesia</span>
     </div>
   </div>
 </footer>
