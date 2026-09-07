@@ -212,11 +212,49 @@
     font-family: "IBM Plex Mono", monospace; font-size: 0.76rem; line-height: 1.7; color: var(--ink);
   }
 
+  /* ---------- Work portfolio ---------- */
+  #work, section[id] { scroll-margin-top: 88px; }
+  .work-group { margin-top: 48px; }
+  .work-group:first-of-type { margin-top: 8px; }
+  .work-group > .label { margin-bottom: 18px; }
+  .work-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+  }
+  .work-item {
+    display: flex; flex-direction: column; text-decoration: none; color: inherit;
+    min-width: 0;
+  }
+  .work-thumb {
+    position: relative; overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--line);
+    background: #000000;
+  }
+  .work-thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.45s ease;
+  }
+  .work-item:hover .work-thumb img { transform: scale(1.045); }
+  .work-meta { padding-top: 14px; display: flex; flex-direction: column; gap: 4px; }
+  .work-meta .label { color: var(--ink-soft); }
+  .work-meta h3 {
+    font-family: "Hanken Grotesk", sans-serif; font-weight: 600;
+    font-size: 1.05rem; letter-spacing: -0.01em;
+  }
+  .work-meta .place { font-size: 0.88rem; color: var(--ink-soft); }
+  .work-more {
+    margin-top: 36px; display: flex; justify-content: space-between; align-items: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .work-more p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
   /* ---------- Immersive Property spotlight ---------- */
   .spotlight {
     background: #000000; color: #ede9de; border-radius: var(--radius-lg);
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px;
     padding: clamp(40px, 6vw, 72px);
+    margin-top: clamp(48px, 7vw, 80px);
   }
   .spotlight .label { color: #ede9dea8; }
   .spotlight h2 {
@@ -305,6 +343,7 @@
     .hero-verticals { flex-direction: row; text-align: left; flex-wrap: wrap; }
     .pillars { grid-template-columns: 1fr 1fr; }
     .fit-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr 1fr; }
     .spotlight { grid-template-columns: 1fr; }
     .insights { grid-template-columns: 1fr; }
     .insight-minor-col { flex-direction: row; }
@@ -312,6 +351,7 @@
   }
   @media (max-width: 560px) {
     .pillars { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
     .process-row { grid-template-columns: 1fr; }
     .insight-minor-col { flex-direction: column; }
   }
@@ -462,6 +502,124 @@
 
   <section id="work" class="rule-top">
     <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work.</h2>
+        <p>Immersive marketing for land, villas and large projects — FPV, virtual tours and render animation. 200+ projects since 2020.</p>
+      </div>
+
+      <div class="work-group">
+        <p class="label">Project Developments</p>
+        <div class="work-grid">
+          <a class="work-item" href="https://youtube.com/shorts/5pOwZ8CzTmA" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/anjuna-fpv.jpg" alt="FPV tour of Anjuna Bay development" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">FPV Tour</p>
+              <h3>Anjuna Bay</h3>
+              <span class="place">Project development · Bali</span>
+            </div>
+          </a>
+          <a class="work-item" href="https://chris75.viewin360.co/share/collection/7Ktxh?logo=-1&amp;info=0&amp;fs=1&amp;vr=0&amp;gyro=0&amp;thumbs=-1&amp;inst=0&amp;keys=0" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/anjuna-vt.jpg" alt="Virtual tour of Anjuna Bay" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">Virtual Tour</p>
+              <h3>Anjuna Bay</h3>
+              <span class="place">360° walkthrough · Bali</span>
+            </div>
+          </a>
+          <a class="work-item" href="https://chris75.viewin360.co/share/collection/7b0Dc?logo=-1&amp;info=0&amp;fs=1&amp;vr=0&amp;gyro=0&amp;thumbs=-1&amp;inst=0&amp;keys=0" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/renders-vt.jpg" alt="Virtual tour of 3D property renders" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">Virtual Tour</p>
+              <h3>3D Renders</h3>
+              <span class="place">Pre-construction walkthrough</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="work-group">
+        <p class="label">Land Plots</p>
+        <div class="work-grid">
+          <a class="work-item" href="https://youtube.com/shorts/05NSIqvD2KE" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/sakti-fpv.jpg" alt="FPV tour of Sakti land project" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">FPV Tour</p>
+              <h3>Sakti Project</h3>
+              <span class="place">Land · Nusa Penida</span>
+            </div>
+          </a>
+          <a class="work-item" href="https://chris75.viewin360.co/share/collection/7bycw?logo=-1&amp;info=0&amp;fs=1&amp;vr=0&amp;gyro=0&amp;thumbs=-1&amp;inst=0&amp;keys=0" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/invest-vt.jpg" alt="Virtual tour of Invest Island" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">Virtual Tour</p>
+              <h3>Invest Island</h3>
+              <span class="place">360° site walkthrough</span>
+            </div>
+          </a>
+          <a class="work-item" href="https://www.youtube.com/shorts/SspB5VhNxeM" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/minimap-fpv.jpg" alt="FPV mini map tour of a land plot" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">FPV Tour</p>
+              <h3>Mini Map</h3>
+              <span class="place">Site orientation · aerial</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="work-group">
+        <p class="label">Luxury Resort &amp; Villas</p>
+        <div class="work-grid">
+          <a class="work-item" href="https://youtu.be/hVTKroq2ARo" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/sardine-fpv.jpg" alt="FPV tour of Sardine Rote" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">FPV Tour</p>
+              <h3>Sardine Rote</h3>
+              <span class="place">Resort · East Nusa Tenggara</span>
+            </div>
+          </a>
+          <a class="work-item" href="https://kuula.co/share/collection/7b3Xl?logo=-1&amp;info=0&amp;fs=1&amp;vr=0&amp;gyro=0&amp;thumbs=-1&amp;inst=0&amp;keys=0" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/kclub-vt.jpg" alt="Virtual tour of K-Club Ubud" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">Virtual Tour</p>
+              <h3>K-Club Ubud</h3>
+              <span class="place">Villa · Bali</span>
+            </div>
+          </a>
+          <a class="work-item" href="https://youtube.com/shorts/1XJsmIawz3k" target="_blank" rel="noopener noreferrer">
+            <div class="work-thumb">
+              <img src="assets/work/kohsamui-fpv.jpg" alt="FPV tour of a villa in Koh Samui" loading="lazy">
+            </div>
+            <div class="work-meta">
+              <p class="label">FPV Tour</p>
+              <h3>Villa Koh Samui</h3>
+              <span class="place">Villa · Thailand</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="work-more">
+        <p>A selection from 200+ immersive projects.</p>
+        <a class="btn btn-outline" href="https://linktr.ee/Meta.Pacific" target="_blank" rel="noopener noreferrer">Full portfolio</a>
+      </div>
+
       <div class="spotlight">
         <div>
           <p class="label">Current Commercial Test</p>
