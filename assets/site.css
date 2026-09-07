@@ -130,7 +130,7 @@ nav.bar {
   background: #ffffff; padding: 6px 12px; border-radius: 12px;
   text-decoration: none;
   transition: transform 0.25s var(--ease-out);
-  z-index: 2;
+  z-index: 40;
 }
 .logo-chip:hover { transform: translateY(-1px); }
 .logo-mark { height: 48px; width: auto; display: block; }
@@ -146,7 +146,7 @@ nav.bar {
   cursor: pointer;
   align-items: center; justify-content: center;
   flex-direction: column; gap: 5px;
-  z-index: 2;
+  z-index: 40;
 }
 .nav-toggle span {
   display: block; width: 16px; height: 1.5px;
@@ -662,10 +662,10 @@ button.btn { cursor: pointer; font-family: inherit; }
   .nav-right { display: none; }
   .nav-shell {
     position: fixed;
-    inset: 0 0 auto 0;
+    inset: 0;
     top: 0;
     padding: 88px 20px 28px;
-    background: color-mix(in srgb, var(--cream) 94%, transparent);
+    background: color-mix(in srgb, var(--cream) 96%, transparent);
     backdrop-filter: blur(22px) saturate(1.15);
     -webkit-backdrop-filter: blur(22px) saturate(1.15);
     border-bottom: 1px solid var(--line);
@@ -678,8 +678,10 @@ button.btn { cursor: pointer; font-family: inherit; }
     pointer-events: none;
     transform: translateY(-8px);
     transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out), visibility 0.22s;
-    z-index: 1;
-    max-height: min(100vh, 100dvh);
+    z-index: 30;
+    max-height: none;
+    height: 100vh;
+    height: 100dvh;
     overflow: auto;
   }
   nav.bar.is-menu-open .nav-shell {
