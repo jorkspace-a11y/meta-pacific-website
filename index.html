@@ -4,42 +4,52 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Meta Pacific</title>
-<link rel="icon" type="image/png" href="assets/favicon.png">
+<!-- Meta Pacific favicon package. Paths stay relative because the site is served
+     from the /meta-pacific-website/ project path, not a domain root. -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#ede9de" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <style>
   :root {
-    --cream: #ece7dc;
-    --cream-raised: #f5f2e9;
-    --ink: #14120e;
-    --ink-soft: #6b6456;
-    --line: #d8d0be;
-    --signal: #2f5c56;
-    --signal-soft: #2f5c5614;
+    /* Brand palette is cream / black / white only. Every other value here is an
+       alpha of those three, so nothing introduces a fourth hue. */
+    --cream: #ede9de;
+    --cream-raised: #ffffff;
+    --ink: #000000;
+    --ink-soft: #00000094;
+    --line: #0000001f;
+    --signal: #000000;
+    --signal-soft: #0000000d;
     --radius-md: 16px;
     --radius-lg: 24px;
     --radius-pill: 999px;
-    --shadow-card: 0 1px 2px rgba(20, 18, 14, 0.04), 0 12px 32px -12px rgba(20, 18, 14, 0.18), 0 2px 24px rgba(20, 18, 14, 0.04);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.16), 0 2px 24px rgba(0, 0, 0, 0.04);
     font-size: 16px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --cream: #14120e;
-      --cream-raised: #1d1b15;
-      --ink: #ece7dc;
-      --ink-soft: #9c9890;
-      --line: #322f26;
-      --signal: #4f9188;
-      --signal-soft: #4f918822;
+      --cream: #000000;
+      --cream-raised: #ede9de0f;
+      --ink: #ede9de;
+      --ink-soft: #ede9dea3;
+      --line: #ede9de29;
+      --signal: #ede9de;
+      --signal-soft: #ede9de14;
     }
   }
   :root[data-theme="dark"] {
-    --cream: #14120e;
-    --cream-raised: #1d1b15;
-    --ink: #ece7dc;
-    --ink-soft: #9c9890;
-    --line: #322f26;
-    --signal: #4f9188;
-    --signal-soft: #4f918822;
+    --cream: #000000;
+    --cream-raised: #ede9de0f;
+    --ink: #ede9de;
+    --ink-soft: #ede9dea3;
+    --line: #ede9de29;
+    --signal: #ede9de;
+    --signal-soft: #ede9de14;
   }
 
   * { box-sizing: border-box; }
@@ -82,7 +92,7 @@
   }
   .logo-chip {
     display: inline-flex; align-items: center; flex: none;
-    background: #ece7dc; padding: 8px 14px; border-radius: 10px;
+    background: #ffffff; padding: 8px 14px; border-radius: 10px;
   }
   .logo-mark { height: 40px; width: auto; display: block; }
   .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; }
@@ -204,29 +214,29 @@
 
   /* ---------- Immersive Property spotlight ---------- */
   .spotlight {
-    background: #14120e; color: #ece7dc; border-radius: var(--radius-lg);
+    background: #000000; color: #ede9de; border-radius: var(--radius-lg);
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px;
     padding: clamp(40px, 6vw, 72px);
   }
-  .spotlight .label { color: #ffffffa8; }
+  .spotlight .label { color: #ede9dea8; }
   .spotlight h2 {
     font-family: "Hanken Grotesk", sans-serif; font-weight: 700; letter-spacing: -0.01em;
     font-size: clamp(1.7rem, 3vw, 2.3rem); margin-top: 14px;
   }
-  .spotlight p.desc { margin-top: 18px; color: #ece7dccc; line-height: 1.65; max-width: 480px; }
+  .spotlight p.desc { margin-top: 18px; color: #ede9decc; line-height: 1.65; max-width: 480px; }
   .spotlight-meta { display: flex; gap: 40px; margin-top: 32px; flex-wrap: wrap; }
   .spotlight-meta div span { display: block; }
-  .spotlight-meta .k { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ece7dc90; }
+  .spotlight-meta .k { font-family: "IBM Plex Mono", monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #ede9de90; }
   .spotlight-meta .v { font-family: "Hanken Grotesk", sans-serif; font-weight: 600; font-size: 1.15rem; margin-top: 5px; }
   .spotlight-cta { margin-top: 36px; }
   .spotlight-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
   .spotlight-list li {
     display: flex; align-items: baseline; gap: 12px; font-size: 0.94rem;
-    padding-bottom: 12px; border-bottom: 1px solid #ece7dc26;
+    padding-bottom: 12px; border-bottom: 1px solid #ede9de26;
   }
-  .spotlight-list li .n { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: #ece7dc80; }
+  .spotlight-list li .n { font-family: "IBM Plex Mono", monospace; font-size: 0.75rem; color: #ede9de80; }
   .spotlight-list li:last-child { border-bottom: none; }
-  .spotlight-note { margin-top: 20px; font-size: 0.78rem; color: #ece7dc80; line-height: 1.5; }
+  .spotlight-note { margin-top: 20px; font-size: 0.78rem; color: #ede9de80; line-height: 1.5; }
 
   /* ---------- How it works: horizontal index steps ---------- */
   .process-head { font-family: "Hanken Grotesk", sans-serif; font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2.15rem); letter-spacing: -0.01em; margin-bottom: 44px; max-width: 640px; }
@@ -265,25 +275,25 @@
   .final-cta .row { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; margin-top: 30px; }
 
   /* ---------- Footer: fixed dark band regardless of page theme, like Tembo's ---------- */
-  footer { background: #14120e; padding: 88px 0 32px; }
+  footer { background: #000000; padding: 88px 0 32px; }
   .foot-grid {
     display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;
     padding-bottom: 64px;
   }
   .foot-brand { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
-  .foot-brand .logo-chip { background: #ece7dc; }
-  .foot-brand p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: #ece7dc99; max-width: 280px; }
+  .foot-brand .logo-chip { background: #ffffff; }
+  .foot-brand p { margin: 0; font-size: 0.9rem; line-height: 1.6; color: #ede9de99; max-width: 280px; }
   .foot-col { display: flex; flex-direction: column; gap: 12px; }
   .foot-col .foot-heading {
     font-family: "IBM Plex Mono", monospace; font-size: 0.72rem; letter-spacing: 0.1em;
-    text-transform: uppercase; color: #ece7dc66; margin-bottom: 4px;
+    text-transform: uppercase; color: #ede9de66; margin-bottom: 4px;
   }
-  .foot-col a { font-size: 0.9rem; text-decoration: none; color: #ece7dcc0; }
-  .foot-col a:hover { color: #ece7dc; }
+  .foot-col a { font-size: 0.9rem; text-decoration: none; color: #ede9dec0; }
+  .foot-col a:hover { color: #ede9de; }
   .foot-bottom {
-    padding-top: 24px; border-top: 1px solid #ece7dc1f;
+    padding-top: 24px; border-top: 1px solid #ede9de1f;
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 0.8rem; color: #ece7dc73;
+    font-size: 0.8rem; color: #ede9de73;
     flex-wrap: wrap; gap: 12px;
   }
 
@@ -477,7 +487,7 @@
             </div>
           </div>
           <div class="spotlight-cta">
-            <a class="btn btn-outline" href="contact.html" style="border-color:#ece7dc55;color:#ece7dc">Request Project Review</a>
+            <a class="btn btn-outline" href="contact.html" style="border-color:#ede9de55;color:#ede9de">Request Project Review</a>
           </div>
           <p class="spotlight-note">One-time working reference price, subject to scope. This page sells one system. It skips the full Meta Pacific service catalogue on purpose.</p>
         </div>
