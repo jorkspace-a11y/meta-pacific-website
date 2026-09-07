@@ -21,15 +21,100 @@
 </head>
 <body>
 <header>
-  <nav class="bar">
+  <nav class="bar" data-nav>
     <a class="logo-chip" href="index.html"><img class="logo-mark" src="assets/logo.png" alt="Meta Pacific"></a>
-    <ul class="nav-links">
-      <li><a href="index.html#work">Work</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="solutions.html">Solutions</a></li>
-      <li><a href="insights.html">Insights</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-shell" id="site-nav">
+      <ul class="nav-links">
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-work">Work <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel" id="panel-work">
+            <a href="index.html#work">
+              <span class="nav-panel-title">Selected work</span>
+              <span class="nav-panel-desc">FPV, virtual tours, and property films from the field.</span>
+            </a>
+            <a href="index.html#work-developments">
+              <span class="nav-panel-title">Project developments</span>
+              <span class="nav-panel-desc">Large sites sold before anyone flies in.</span>
+            </a>
+            <a href="index.html#work-land">
+              <span class="nav-panel-title">Land plots</span>
+              <span class="nav-panel-desc">Terrain and access, shown clearly.</span>
+            </a>
+            <a href="index.html#work-villas">
+              <span class="nav-panel-title">Resorts and villas</span>
+              <span class="nav-panel-desc">Hospitality spaces you can walk before you book.</span>
+            </a>
+            <div class="nav-panel-foot">
+              <a href="index.html#work">View all work <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-services">Services <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel nav-panel-wide" id="panel-services">
+            <div class="nav-panel-grid">
+              <a href="services.html#strategy">
+                <span class="nav-panel-title">Strategy</span>
+                <span class="nav-panel-desc">Positioning, messaging, funnel logic.</span>
+              </a>
+              <a href="services.html#visual">
+                <span class="nav-panel-title">Visual production</span>
+                <span class="nav-panel-desc">Films, photography, creative direction.</span>
+              </a>
+              <a href="services.html#fpv">
+                <span class="nav-panel-title">Drone and FPV</span>
+                <span class="nav-panel-desc">Spatial storytelling from the air.</span>
+              </a>
+              <a href="services.html#tours">
+                <span class="nav-panel-title">Virtual tours</span>
+                <span class="nav-panel-desc">Walkthroughs that sell the place.</span>
+              </a>
+              <a href="services.html#web">
+                <span class="nav-panel-title">Web and landing pages</span>
+                <span class="nav-panel-desc">Pages that turn viewers into leads.</span>
+              </a>
+              <a href="services.html#growth">
+                <span class="nav-panel-title">Growth systems</span>
+                <span class="nav-panel-desc">CRM, tracking, experiments.</span>
+              </a>
+            </div>
+            <div class="nav-panel-foot">
+              <a href="services.html">All services <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-solutions">Solutions <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel" id="panel-solutions">
+            <a href="solutions.html#hospitality">
+              <span class="nav-panel-title">Hospitality and real estate</span>
+              <span class="nav-panel-desc">Sell confidence before the flight.</span>
+            </a>
+            <a href="solutions.html#brands">
+              <span class="nav-panel-title">Lifestyle brands</span>
+              <span class="nav-panel-desc">Identity and content that keep showing up.</span>
+            </a>
+            <a href="solutions.html#founders">
+              <span class="nav-panel-title">Founders</span>
+              <span class="nav-panel-desc">Make the person behind the company legible.</span>
+            </a>
+            <a href="solutions.html#pipeline">
+              <span class="nav-panel-title">Demand to pipeline</span>
+              <span class="nav-panel-desc">Turn interest into a working system.</span>
+            </a>
+            <div class="nav-panel-foot">
+              <a href="solutions.html">All solutions <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <a class="btn btn-solid btn-sm nav-cta-mobile" href="contact.html">Contact</a>
+    </div>
     <div class="nav-right">
       <a class="btn btn-solid btn-sm" href="contact.html">Contact</a>
     </div>
@@ -162,5 +247,6 @@
 
 
 
+<script src="assets/nav.js" defer></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ Never use em dashes. Prefer a period, comma, or a new sentence. Em dashes are an
 - Palette: cream `#ede9de`, black `#000000`, white `#ffffff` only
 - Type from Framer: Poppins Title 42 / Subtitle 36 / Body 16 / Caption 14 (bold). Mukti Subheading 36 (regular; Mukta on the web).
 - Brand mark: stacked META box + PACIFIC + wave over turtle watermark (`assets/logo.png` nav, `assets/logo-hero.png` heroes). Brand lockup is the hero-level signal; headlines sit under it.
-- Structure: Tembo-like tokens, hairlines, pill CTAs
+- Structure: Tembo-like tokens, hairlines, pill CTAs; Oura/Tembo nav with chevron flyouts and mobile drawer
 - Atmosphere: Oura-like breathing room, full-bleed black capture plane
 - Motion thesis: the flight path is the living signature; work pieces arrive as a formation; no fade-up on every section
 
