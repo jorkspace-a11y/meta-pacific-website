@@ -13,7 +13,8 @@ Never use em dashes. Prefer a period, comma, or a new sentence. Em dashes are an
 
 ## Visual system
 - Palette: cream `#ede9de`, black `#000000`, white `#ffffff` only
-- Type: Hanken Grotesk (display), Inter (body), IBM Plex Mono (labels)
+- Type from Framer: Poppins Title 42 / Subtitle 36 / Body 16 / Caption 14 (bold). Mukti Subheading 36 (regular; Mukta on the web).
+- Brand name in hero is Title-scale; headlines sit at Subheading so the brand stays dominant.
 - Structure: Tembo-like tokens, hairlines, pill CTAs
 - Atmosphere: Oura-like breathing room, full-bleed black capture plane
 - Motion thesis: the flight path is the living signature; work pieces arrive as a formation; no fade-up on every section

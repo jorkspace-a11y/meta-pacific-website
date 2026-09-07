@@ -132,9 +132,9 @@
 
 /* Field note — replaces the repeated statement block */
 .field-note {
-  font-family: "Hanken Grotesk", sans-serif;
-  font-weight: 520;
-  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  font-family: var(--font-subhead);
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, var(--size-subheading));
   line-height: 1.35;
   letter-spacing: -0.02em;
   max-width: 760px;
