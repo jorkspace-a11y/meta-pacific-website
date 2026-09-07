@@ -125,19 +125,25 @@
   (function () {
     var nodes = document.querySelectorAll('.reveal');
     if (!nodes.length) return;
+    function show(n) { n.classList.add('is-in'); }
     if (!('IntersectionObserver' in window)) {
-      nodes.forEach(function (n) { n.classList.add('is-in'); });
+      nodes.forEach(show);
       return;
     }
+    // Hash targets must paint immediately (View Work / deep links).
+    var hash = location.hash && document.querySelector(location.hash);
+    if (hash && hash.classList.contains('reveal')) show(hash);
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) {
-          e.target.classList.add('is-in');
+          show(e.target);
           io.unobserve(e.target);
         }
       });
     }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
-    nodes.forEach(function (n) { io.observe(n); });
+    nodes.forEach(function (n) {
+      if (!n.classList.contains('is-in')) io.observe(n);
+    });
   })();
 </script>
 </body>
