@@ -123,12 +123,13 @@ nav.bar {
 }
 .logo-chip {
   display: inline-flex; align-items: center; flex: none;
-  background: #ffffff; padding: 8px 14px; border-radius: 12px;
+  background: #ffffff; padding: 6px 12px; border-radius: 12px;
   text-decoration: none;
   transition: transform 0.25s var(--ease-out);
 }
 .logo-chip:hover { transform: translateY(-1px); }
-.logo-mark { height: 40px; width: auto; display: block; }
+.logo-mark { height: 48px; width: auto; display: block; }
+.foot-brand .logo-mark { height: 44px; }
 .nav-links { display: flex; gap: 32px; list-style: none; margin: 0; padding: 0; }
 .nav-links a {
   text-decoration: none; font-size: var(--size-caption); font-weight: 700;
@@ -165,14 +166,14 @@ nav.bar {
   display: grid; grid-template-columns: minmax(0, 820px) auto;
   gap: 40px; align-items: end;
 }
-.hero-brand {
-  font-family: var(--font-sans);
-  font-weight: 700;
-  font-size: clamp(28px, 4vw, var(--size-title));
-  letter-spacing: -0.02em;
-  margin: 0 0 14px;
-  color: var(--ink-strong);
-  line-height: 1.15;
+.hero-brand-mark {
+  display: block;
+  width: min(300px, 72vw);
+  height: auto;
+  margin: 0 0 22px;
+  padding: 16px 20px;
+  background: #ffffff;
+  border-radius: 16px;
 }
 .hero h1 {
   font-family: var(--font-subhead);

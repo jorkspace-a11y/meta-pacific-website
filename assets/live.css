@@ -8,7 +8,7 @@
 }
 
 /* Hero load — one authored entrance */
-.js .hero-brand,
+.js .hero-brand-mark,
 .js .hero .label,
 .js .hero h1,
 .js .hero-verticals,
@@ -17,7 +17,7 @@
   opacity: 0;
   transform: translateY(16px);
 }
-.js .hero.is-live .hero-brand,
+.js .hero.is-live .hero-brand-mark,
 .js .hero.is-live .label,
 .js .hero.is-live h1,
 .js .hero.is-live .hero-verticals,
@@ -27,7 +27,7 @@
   transform: none;
   transition: opacity 0.7s var(--ease-arrive), transform 0.7s var(--ease-arrive);
 }
-.js .hero.is-live .hero-brand { transition-delay: 0.05s; }
+.js .hero.is-live .hero-brand-mark { transition-delay: 0.05s; }
 .js .hero.is-live .label { transition-delay: 0.12s; }
 .js .hero.is-live h1 { transition-delay: 0.2s; }
 .js .hero.is-live .hero-verticals { transition-delay: 0.28s; }
@@ -162,7 +162,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .hero-brand,
+  .js .hero-brand-mark,
   .js .hero .label,
   .js .hero h1,
   .js .hero-verticals,
