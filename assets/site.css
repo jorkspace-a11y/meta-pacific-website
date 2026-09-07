@@ -218,20 +218,6 @@ section {
 .rule-top { border-top: 1px solid var(--line); }
 #work, section[id] { scroll-margin-top: 88px; }
 
-/* Soft entrance — progressive enhancement (visible without JS) */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-}
-.js .reveal.is-in {
-  opacity: 1;
-  transform: none;
-}
-@media (prefers-reduced-motion: reduce) {
-  .js .reveal { opacity: 1; transform: none; transition: none; }
-}
-
 /* ---------- Positioning statement ---------- */
 .statement {
   font-family: "Hanken Grotesk", sans-serif; font-weight: 520;

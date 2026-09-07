@@ -45,7 +45,7 @@
     </div>
   </section>
 
-  <section class="rule-top reveal">
+  <section class="rule-top">
     <div class="wrap">
       <div class="services-grid">
         <div class="pillar">
@@ -61,7 +61,7 @@
         <div class="pillar span-2">
           <span class="idx">03</span>
           <h3>Drone and FPV</h3>
-          <p>Aerial establishing shots, architecture, landscape, hospitality, real estate, destination storytelling, FPV walkthroughs, dynamic reveals, immersive tours, transitions, high energy spatial storytelling.</p>
+          <p>Aerial establishing shots, architecture, landscape, hospitality, real estate, destination storytelling, FPV walkthroughs, dynamics, immersive tours, transitions, high energy spatial storytelling.</p>
           <p class="card-note">FPV and aerial are used as storytelling tools, not gimmicks.</p>
         </div>
         <div class="pillar">
@@ -104,7 +104,7 @@
     </div>
   </section>
 
-  <section class="rule-top reveal">
+  <section class="rule-top">
     <div class="wrap final-cta">
       <h2>Not sure which of these a project needs?</h2>
       <div class="row">
@@ -145,30 +145,6 @@
 </footer>
 
 
-<script>
-  (function () {
-    var nodes = document.querySelectorAll('.reveal');
-    if (!nodes.length) return;
-    function show(n) { n.classList.add('is-in'); }
-    if (!('IntersectionObserver' in window)) {
-      nodes.forEach(show);
-      return;
-    }
-    // Hash targets must paint immediately (View Work / deep links).
-    var hash = location.hash && document.querySelector(location.hash);
-    if (hash && hash.classList.contains('reveal')) show(hash);
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          show(e.target);
-          io.unobserve(e.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
-    nodes.forEach(function (n) {
-      if (!n.classList.contains('is-in')) io.observe(n);
-    });
-  })();
-</script>
+
 </body>
 </html>
