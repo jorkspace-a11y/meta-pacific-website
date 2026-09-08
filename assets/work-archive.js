@@ -18,13 +18,22 @@
 
   buttons.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      apply(btn.getAttribute("data-filter"));
+      var filter = btn.getAttribute("data-filter");
+      if (filter === "all") {
+        if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+      } else {
+        history.replaceState(null, "", "#" + filter);
+      }
+      apply(filter);
     });
   });
 
-  window.addEventListener("hashchange", function () {
-    var next = (location.hash || "").replace("#", "");
-    if (next && root.querySelector('button[data-filter="' + next + '"]')) apply(next);
+  function fromHash() {
+    var hash = (location.hash || "").replace("#", "");
+    if (hash && root.querySelector('button[data-filter="' + hash + '"]')) apply(hash);
     else apply("all");
-  });
+  }
+
+  window.addEventListener("hashchange", fromHash);
+  fromHash();
 })();
