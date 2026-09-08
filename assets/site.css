@@ -282,13 +282,20 @@ body.nav-lock { overflow: hidden; }
 }
 .hero-brand-mark {
   display: block;
-  width: min(280px, 68vw);
+  width: min(200px, 52vw);
   height: auto;
   margin: 0 0 18px;
   padding: 0;
   background: transparent;
   border-radius: 0;
 }
+.hero-brand-on-dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-brand-on-light { display: none; }
+  :root:not([data-theme="light"]) .hero-brand-on-dark { display: block; }
+}
+:root[data-theme="dark"] .hero-brand-on-light { display: none; }
+:root[data-theme="dark"] .hero-brand-on-dark { display: block; }
 .hero h1 {
   font-family: var(--font-sans);
   font-weight: 700;
