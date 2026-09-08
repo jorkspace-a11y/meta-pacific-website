@@ -4,6 +4,10 @@
 <script>document.documentElement.classList.add("js");</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Contact | Meta Pacific">
+<meta property="og:image" content="https://jorkspace-a11y.github.io/meta-pacific-website/og-image-contact.png">
+<meta property="og:url" content="https://jorkspace-a11y.github.io/meta-pacific-website/contact.html">
+<meta name="twitter:card" content="summary_large_image">
 <title>Contact | Meta Pacific</title>
 <!-- Meta Pacific favicon package. Paths stay relative because the site is served
      from the /meta-pacific-website/ project path, not a domain root. -->
@@ -111,7 +115,19 @@
           </div>
         </li>
         <li><a href="insights.html">Insights</a></li>
-        <li><a href="about.html">About</a></li>
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-about">About <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel" id="panel-about">
+            <a href="about.html">
+              <span class="nav-panel-title">The studio</span>
+              <span class="nav-panel-desc">Who we are and how the work is run.</span>
+            </a>
+            <a href="values.html">
+              <span class="nav-panel-title">Our values</span>
+              <span class="nav-panel-desc">Purpose, mission, and working standards.</span>
+            </a>
+          </div>
+        </li>
       </ul>
       <a class="btn btn-solid btn-sm nav-cta-mobile" href="contact.html">Contact</a>
     </div>
@@ -168,7 +184,8 @@
           <p>There's no public inbox live yet. Use the form, we read every one personally, from Bali, usually within a day.</p>
           <div class="contact-social">
             <a href="https://www.instagram.com/metapacific_/">Instagram</a>
-            <a href="#">LinkedIn</a>
+            <a href="https://www.linkedin.com/company/meta-pacific/" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://wa.me/6282318639834" rel="noopener noreferrer">WhatsApp</a>
           </div>
         </div>
       </div>
@@ -190,11 +207,13 @@
         <a href="solutions.html">Solutions</a>
         <a href="insights.html">Insights</a>
         <a href="about.html">About</a>
+        <a href="values.html">Our values</a>
       </div>
       <div class="foot-col">
         <span class="foot-heading">Connect</span>
         <a href="https://www.instagram.com/metapacific_/">Instagram</a>
-        <a href="#">LinkedIn</a>
+        <a href="https://www.linkedin.com/company/meta-pacific/" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://wa.me/6282318639834" rel="noopener noreferrer">WhatsApp</a>
         <a href="contact.html">Contact</a>
       </div>
     </div>
