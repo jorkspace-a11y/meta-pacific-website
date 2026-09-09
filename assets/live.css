@@ -160,6 +160,24 @@
   border-radius: 8px;
 }
 
+/* GSAP-driven reveal targets: CSS only sets the "before" state.
+   GSAP/ScrollTrigger animates to visible via inline styles, which
+   beat these class rules on specificity — no transition properties
+   needed here, GSAP owns the easing and stagger. */
+.js .pillar,
+.js .fit-card,
+.js .insight-featured,
+.js .insight-minor,
+.js .solution-card,
+.js .price-card,
+.js .scope-card,
+.js .custom-card,
+.js .stat,
+.js .faq-list details {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .js .hero-brand-mark,
   .js .hero h1,
@@ -168,7 +186,17 @@
   .js .hero-cta-row,
   .js .capture-panel,
   .js .work-item,
-  .js .process-step {
+  .js .process-step,
+  .js .pillar,
+  .js .fit-card,
+  .js .insight-featured,
+  .js .insight-minor,
+  .js .solution-card,
+  .js .price-card,
+  .js .scope-card,
+  .js .custom-card,
+  .js .stat,
+  .js .faq-list details {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
