@@ -1,4 +1,10 @@
 (function () {
+  if (/\/index\.html$/.test(location.pathname)) {
+    history.replaceState(null, "", location.pathname.replace(/index\.html$/, "") + location.search + location.hash);
+  }
+})();
+
+(function () {
   var root = document.querySelector("[data-nav]");
   if (!root) return;
 
