@@ -1027,6 +1027,35 @@ button.btn { cursor: pointer; font-family: inherit; }
   aspect-ratio: 9 / 16;
 }
 .case-plate img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Page plate: one photograph under a page hero, for pages that are not tied
+   to a single project. Deliberately no aspect-ratio and no object-fit: the
+   image keeps its own proportions, nothing is cropped, and the width/height
+   attributes reserve the right box on their own. */
+.page-plate {
+  margin: clamp(28px, 4vw, 44px) 0 0;
+}
+.page-plate img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: #000000;
+}
+.page-plate figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+@media (max-width: 560px) {
+  .page-plate figcaption { flex-direction: column; gap: 4px; }
+}
 .case-body { max-width: 680px; margin-top: 28px; }
 .case-body p { font-size: var(--size-body); line-height: 1.75; color: var(--ink-soft); }
 .case-embeds { display: grid; gap: 28px; margin-top: 40px; }
