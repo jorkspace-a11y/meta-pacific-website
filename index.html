@@ -167,6 +167,21 @@
         <a class="btn btn-outline" href="work/">View Work</a>
       </div>
 
+      <div class="stat-band" style="margin-top: clamp(32px, 5vw, 56px);">
+        <div class="stat">
+          <span class="n">200+</span>
+          <p>immersive projects since 2020, from land plots to large developments</p>
+        </div>
+        <div class="stat">
+          <span class="n">5+</span>
+          <p>units on the developer briefs we take. Smaller sites are a different job.</p>
+        </div>
+        <div class="stat">
+          <span class="n">1</span>
+          <p>capture day when the brief allows it. Film, FPV, and aerial planned together.</p>
+        </div>
+      </div>
+
       <div class="capture-glow">
         <div class="capture-panel">
           <div class="capture-stage">
@@ -186,21 +201,6 @@
             <span class="mono">Flight path / capture day</span>
             <span class="mono">FPV / aerial / virtual tour</span>
           </div>
-        </div>
-      </div>
-
-      <div class="stat-band" style="margin-top: clamp(32px, 5vw, 56px);">
-        <div class="stat">
-          <span class="n">200+</span>
-          <p>immersive projects since 2020, from land plots to large developments</p>
-        </div>
-        <div class="stat">
-          <span class="n">5+</span>
-          <p>units on the developer briefs we take. Smaller sites are a different job.</p>
-        </div>
-        <div class="stat">
-          <span class="n">1</span>
-          <p>capture day when the brief allows it. Film, FPV, and aerial planned together.</p>
         </div>
       </div>
     </div>
@@ -503,11 +503,40 @@
   </section>
 
   <section id="contact" class="rule-top">
-    <div class="wrap final-cta">
-      <h2>Send the project. Tell us what is blocking the yes.</h2>
-      <div class="row">
-        <p style="max-width:460px;color:var(--ink-soft);font-size:1rem;line-height:1.6;">We answer from Bali, usually within a day. Timeline, site condition, and who you need to convince. That is enough to start.</p>
-        <a class="btn btn-solid" href="contact/">Start a Project</a>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Send the project. Tell us what is blocking the yes.</h2>
+        <p style="max-width:460px;">We answer from Bali, usually within a day. Timeline, site condition, and who you need to convince. That is enough to start.</p>
+      </div>
+      <div class="contact-layout">
+        <form class="contact-form-card" action="https://formspree.io/f/mqpkgvzw" method="POST">
+          <input type="hidden" name="_subject" value="New project inquiry, Meta Pacific homepage">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="field">
+            <label for="home-name">Name</label>
+            <input type="text" id="home-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="home-email">Email</label>
+            <input type="email" id="home-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="home-message">Message</label>
+            <textarea id="home-message" name="message" required placeholder="Project, timeline, and what is blocking the yes."></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid">Send</button>
+        </form>
+        <div class="contact-side">
+          <div class="contact-block">
+            <p class="label">Direct</p>
+            <p>Prefer more detail first? Use the full <a href="contact/">contact page</a>, or reach us directly.</p>
+            <div class="contact-social">
+              <a href="https://www.instagram.com/metapacific_/">Instagram</a>
+              <a href="https://www.linkedin.com/company/meta-pacific/" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://wa.me/6282318639834" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -515,6 +544,45 @@
 
 <footer>
   <div class="wrap">
+    <div class="foot-links">
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/strategy/">Strategy</a></li>
+          <li><a href="services/visual-production/">Visual production</a></li>
+          <li><a href="services/drone-fpv/">Drone and FPV</a></li>
+          <li><a href="services/virtual-tours/">Virtual tours</a></li>
+          <li><a href="services/web-landing-pages/">Web and landing pages</a></li>
+          <li><a href="services/growth/">Growth systems</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="for-whom/enterprise/">Developers and operators</a></li>
+          <li><a href="solutions/#hospitality">Hospitality and real estate</a></li>
+          <li><a href="solutions/#brands">Lifestyle brands</a></li>
+          <li><a href="solutions/#founders">Founders</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="field-notes/">Field notes</a></li>
+          <li><a href="work/">Customer stories</a></li>
+          <li><a href="tools/">Tools</a></li>
+          <li><a href="pricing/">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about/">About</a></li>
+          <li><a href="values/">Our values</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+      </div>
+    </div>
     <div class="foot-grid">
       <p class="foot-name">Meta Pacific</p>
       <div class="foot-social">
