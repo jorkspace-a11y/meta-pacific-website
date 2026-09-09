@@ -72,8 +72,86 @@
       );
       form.addEventListener("submit", function () {
         track("lead_form_submit", { form_name: formName });
+        submitToHubSpot(form, formName);
       });
     });
+  }
+
+  var HUBSPOT_PORTAL_ID = "247334337";
+  var HUBSPOT_FORM_GUID = "64468752-2695-49de-97fb-0a4c14fc2dbf";
+
+  var PROJECT_TYPE_MAP = {
+    "Immersive Property Launch": "immersive_property_launch",
+    "Overlapping launches": "overlapping_launches",
+    "Brand and Content": "brand_and_content",
+    "Web and Landing Page": "web_and_landing_page",
+    "Something Else": "something_else",
+  };
+  var CONSTRUCTION_STAGE_MAP = {
+    "Planning": "planning",
+    "Under construction": "under_construction",
+    "Near completion": "near_completion",
+    "Completed": "completed",
+    "Not applicable": "not_applicable",
+  };
+  var TIMELINE_MAP = {
+    "As soon as possible": "asap",
+    "1 to 3 months": "1_3_months",
+    "3 to 6 months": "3_6_months",
+    "Just exploring": "just_exploring",
+  };
+  var BUDGET_MAP = {
+    "Under IDR 25,000,000": "under_25m",
+    "Around IDR 25,000,000 (Immersive Property Launch)": "around_25m",
+    "Above IDR 25,000,000 / ongoing work": "above_25m",
+    "Not sure yet": "not_sure",
+  };
+
+  function fv(form, name) {
+    var el = form.querySelector('[name="' + name + '"]');
+    return el ? el.value : "";
+  }
+
+  function submitToHubSpot(form, formName) {
+    var attribution = getAttribution();
+    var fields = [];
+    function add(name, value) {
+      if (value) fields.push({ name: name, value: value });
+    }
+    add("email", fv(form, "email"));
+    add("firstname", fv(form, "name"));
+    add("company", fv(form, "company"));
+    add("city", fv(form, "location"));
+    add("website", fv(form, "website-instagram"));
+    add("meta_project_type", PROJECT_TYPE_MAP[fv(form, "project-type")]);
+    add("meta_units", fv(form, "units"));
+    add("meta_construction_stage", CONSTRUCTION_STAGE_MAP[fv(form, "construction-stage")]);
+    add("meta_timeline", TIMELINE_MAP[fv(form, "timeline")]);
+    add("meta_budget_range", BUDGET_MAP[fv(form, "budget-range")]);
+    add("message", fv(form, "message"));
+    add("meta_lead_source_page", formName);
+    add("meta_utm_source", attribution.utm_source);
+    add("meta_utm_medium", attribution.utm_medium);
+    add("meta_utm_campaign", attribution.utm_campaign);
+
+    if (!fields.some(function (f) { return f.name === "email"; })) return;
+
+    var url =
+      "https://api.hsforms.com/submissions/v3/integration/submit/" +
+      HUBSPOT_PORTAL_ID +
+      "/" +
+      HUBSPOT_FORM_GUID;
+    try {
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        keepalive: true,
+        body: JSON.stringify({
+          fields: fields,
+          context: { pageUri: location.href, pageName: document.title },
+        }),
+      }).catch(function () {});
+    } catch (e) {}
   }
 
   saveAttribution();
