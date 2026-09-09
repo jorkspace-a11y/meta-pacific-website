@@ -18,6 +18,7 @@ Never use em dashes. Prefer a period, comma, or a new sentence. Em dashes are an
 - Structure: cream surfaces, hairlines, square buttons, chevron flyout nav, full-viewport mobile drawer
 - Atmosphere: breathing room, full-bleed black capture plane
 - Motion thesis: the flight path is the living signature; work pieces arrive as a formation; no fade-up on every section
+- Audience pages: proof stats, one case, how we work, two price shapes, FAQ, form. Same visual system. No purple SaaS gradients.
 
 ## Anti-references
 Purple SaaS gradients, terracotta-on-cream default, broadsheet density, identical card kits with soft grey shadows, tracked ALL-CAPS eyebrows on every heading, scattered section reveals.
