@@ -4,13 +4,14 @@
 <script>document.documentElement.classList.add("js");</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta property="og:title" content="Property Launch Scope Estimator | Meta Pacific">
+<meta property="og:title" content="Resources | Meta Pacific">
 <meta property="og:image" content="https://metapacific.co/og-image.png">
-<meta property="og:url" content="https://metapacific.co/tools/">
+<meta property="og:url" content="https://metapacific.co/resources/">
 <meta name="twitter:card" content="summary_large_image">
-<title>Property Launch Scope Estimator | Meta Pacific</title>
-<meta name="description" content="Answer five questions about your property launch and get an indicative scope, not a fake quote. See if it matches the published Immersive Property Launch offer or needs a custom brief.">
-<link rel="canonical" href="https://metapacific.co/tools/">
+<title>Resources | Meta Pacific</title>
+<meta name="description" content="Field notes from production, selected customer stories, and a working scope estimator. No filler, no manufactured stats.">
+<link rel="canonical" href="https://metapacific.co/resources/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://metapacific.co/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://metapacific.co/resources/"}]}</script>
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="shortcut icon" href="../favicon.ico">
@@ -24,22 +25,11 @@
 <link rel="stylesheet" href="../assets/site.css">
 <link rel="stylesheet" href="../assets/live.css">
 <style>
-.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
-@media (max-width: 860px) { .calc-grid { grid-template-columns: 1fr; } }
-.calc-field { margin-bottom: 22px; }
-.calc-field label { display: block; font-size: 0.86rem; font-weight: 600; margin-bottom: 8px; }
-.calc-field select, .calc-field input[type="number"] {
-  width: 100%; padding: 12px 14px; border: 1px solid var(--line); background: var(--surface);
-  font-family: var(--font-sans); font-size: 0.95rem; border-radius: 0;
-}
-.calc-check-row { display: flex; flex-wrap: wrap; gap: 10px 18px; }
-.calc-check { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
-.calc-result { border: 1px solid var(--line); padding: 28px; position: sticky; top: 24px; }
-.calc-result .label { margin: 0 0 4px; }
-.calc-result h3 { margin: 0 0 12px; }
-.calc-result ul { margin: 12px 0; padding-left: 18px; color: var(--ink-soft); }
-.calc-result li { margin: 4px 0; }
-.calc-disclaimer { margin-top: 16px; font-size: 0.82rem; color: var(--ink-muted); }
+.res-section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 20px; flex-wrap: wrap; }
+.res-section-head h2 { margin: 0; }
+.tools-callout { border: 1px solid var(--line); padding: 28px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.tools-callout h3 { margin: 0 0 6px; }
+.tools-callout p { margin: 0; color: var(--ink-soft); max-width: 46em; }
 </style>
 </head>
 <body>
@@ -54,10 +44,7 @@
         <li class="nav-item has-panel">
           <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-work">Work <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
           <div class="nav-panel" id="panel-work">
-            <a href="../work/">
-              <span class="nav-panel-title">Selected work</span>
-              <span class="nav-panel-desc">FPV, virtual tours, and property films from the field.</span>
-            </a>
+            <a href="../work/"><span class="nav-panel-title">Selected work</span><span class="nav-panel-desc">FPV, virtual tours, and property films from the field.</span></a>
           </div>
         </li>
         <li class="nav-item has-panel">
@@ -83,7 +70,7 @@
           </div>
         </li>
         <li><a href="../pricing/">Pricing</a></li>
-        <li><a href="../resources/">Resources</a></li>
+        <li><a href="../resources/" aria-current="page">Resources</a></li>
         <li class="nav-item has-panel">
           <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-about">About <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
           <div class="nav-panel" id="panel-about">
@@ -103,58 +90,96 @@
 <main>
   <section class="hero" style="padding-bottom: clamp(24px, 4vw, 40px);">
     <div class="wrap">
-      <p class="label">Tools</p>
-      <h1>See if your launch fits the published offer.</h1>
-      <p class="hero-sub">Five questions. This gives an indicative scope, not a quote. Internal margins stay internal, and this is not an AI generator pretending to think.</p>
+      <p class="label">Resources</p>
+      <h1>Notes from production, real projects, one working tool.</h1>
+      <p class="hero-sub">No manufactured case-study metrics, no filler articles written to hit a keyword. If it is here, it came from a real job.</p>
     </div>
   </section>
 
   <section class="rule-top">
     <div class="wrap">
-      <div class="calc-grid">
-        <form id="scope-form" novalidate>
-          <div class="calc-field">
-            <label for="calc-type">Property type</label>
-            <select id="calc-type">
-              <option value="villa">Villa</option>
-              <option value="development" selected>Development</option>
-              <option value="land">Land plot</option>
-              <option value="hospitality">Hospitality</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="calc-field">
-            <label for="calc-units">Number of units</label>
-            <input type="number" id="calc-units" min="0" value="5" inputmode="numeric">
-          </div>
-          <div class="calc-field">
-            <label>Services needed</label>
-            <div class="calc-check-row">
-              <label class="calc-check"><input type="checkbox" data-svc="tour" checked> Virtual tour</label>
-              <label class="calc-check"><input type="checkbox" data-svc="fpv" checked> FPV walkthrough</label>
-              <label class="calc-check"><input type="checkbox" data-svc="aerial" checked> Aerial footage</label>
-              <label class="calc-check"><input type="checkbox" data-svc="film" checked> Property film</label>
-              <label class="calc-check"><input type="checkbox" data-svc="page"> Landing page</label>
-              <label class="calc-check"><input type="checkbox" data-svc="growth"> Ongoing campaign support</label>
-            </div>
-          </div>
-          <div class="calc-field">
-            <label for="calc-timeline">Timeline</label>
-            <select id="calc-timeline">
-              <option value="standard" selected>Standard</option>
-              <option value="rush">Rush</option>
-            </select>
-          </div>
-        </form>
-
-        <div class="calc-result" id="calc-result" aria-live="polite">
-          <p class="label">Indicative scope</p>
-          <h3 id="calc-headline">-</h3>
-          <p id="calc-body"></p>
-          <ul id="calc-list"></ul>
-          <a class="btn btn-solid" href="../contact/" id="calc-cta">Request a review</a>
-          <p class="calc-disclaimer">This is an indicative scope built from fixed rules, not a live quote or an AI estimate. Final price and deliverables are confirmed after a brief.</p>
+      <div class="res-section-head">
+        <h2>Insights</h2>
+        <a href="../field-notes/">All field notes <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="insights">
+        <a class="insight-featured" href="../field-notes/virtual-tours-before-a-visit/">
+          <p class="label">Property marketing</p>
+          <h3>How virtual tours help sell villas before a physical visit</h3>
+          <p class="insight-dek">What buyers actually need to see before they book a flight, and what a flat photo set leaves out.</p>
+          <span class="rd">Read</span>
+        </a>
+        <div class="insight-minor-col">
+          <a class="insight-minor" href="../field-notes/fpv-vs-traditional-drone/">
+            <p class="label">Drones / FPV</p>
+            <h3>FPV vs. traditional drone for property marketing</h3>
+            <span class="rd">Read</span>
+          </a>
+          <a class="insight-minor" href="../field-notes/ai-effects-vs-traditional-vfx/">
+            <p class="label">Creative technology</p>
+            <h3>AI effects vs. traditional VFX</h3>
+            <span class="rd">Read</span>
+          </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top">
+    <div class="wrap">
+      <div class="res-section-head">
+        <h2>Customer stories</h2>
+        <a href="../work/">All work <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="work-grid">
+        <a class="work-item" href="../work/01-anjuna-bay/">
+          <div class="work-thumb">
+            <img src="../assets/work/anjuna-fpv.jpg" alt="FPV tour of Anjuna Bay development" loading="lazy">
+            <span class="work-play" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 1.2v9.6L10.5 6z"/></svg></span>
+          </div>
+          <div class="work-meta">
+            <p class="label">Project development</p>
+            <h3>Anjuna Bay</h3>
+            <span class="place">A development that has to be understood before anyone books a flight.</span>
+          </div>
+        </a>
+        <a class="work-item" href="../work/03-sakti/">
+          <div class="work-thumb">
+            <img src="../assets/work/sakti-fpv.jpg" alt="FPV tour of Sakti land project" loading="lazy">
+            <span class="work-play" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 1.2v9.6L10.5 6z"/></svg></span>
+          </div>
+          <div class="work-meta">
+            <p class="label">Land, Nusa Penida</p>
+            <h3>Sakti Project</h3>
+            <span class="place">Terrain and access, shown clearly from the air.</span>
+          </div>
+        </a>
+        <a class="work-item" href="../work/08-villa-koh-samui/">
+          <div class="work-thumb">
+            <img src="../assets/work/kohsamui-fpv.jpg" alt="FPV tour of a villa in Koh Samui" loading="lazy">
+            <span class="work-play" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 1.2v9.6L10.5 6z"/></svg></span>
+          </div>
+          <div class="work-meta">
+            <p class="label">Resort and villa, Koh Samui</p>
+            <h3>Villa Koh Samui</h3>
+            <span class="place">A hospitality space you can walk before you book.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rule-top">
+    <div class="wrap">
+      <div class="res-section-head">
+        <h2>Tools</h2>
+      </div>
+      <div class="tools-callout">
+        <div>
+          <h3>Property Launch Scope Estimator</h3>
+          <p>Five questions about your property, your units, and the services you need. Returns an indicative scope, not a fake quote or an AI guess.</p>
+        </div>
+        <a class="btn btn-solid" href="../tools/">Open the estimator</a>
       </div>
     </div>
   </section>
@@ -180,79 +205,5 @@
 </footer>
 <script src="../assets/nav.js" defer></script>
 <script src="../assets/live.js" defer></script>
-<script>
-(function () {
-  var form = document.getElementById('scope-form');
-  var typeEl = document.getElementById('calc-type');
-  var unitsEl = document.getElementById('calc-units');
-  var timelineEl = document.getElementById('calc-timeline');
-  var headline = document.getElementById('calc-headline');
-  var body = document.getElementById('calc-body');
-  var list = document.getElementById('calc-list');
-  var cta = document.getElementById('calc-cta');
-
-  var LABELS = {
-    tour: 'Virtual tour',
-    fpv: 'FPV walkthrough',
-    aerial: 'Aerial footage',
-    film: 'Sales-oriented property film',
-    page: 'Landing page and tracking',
-    growth: 'Ongoing campaign support'
-  };
-  var LAUNCH_SET = ['tour', 'fpv', 'aerial', 'film'];
-
-  function getChecked() {
-    return Array.prototype.slice.call(form.querySelectorAll('[data-svc]'))
-      .filter(function (i) { return i.checked; })
-      .map(function (i) { return i.getAttribute('data-svc'); });
-  }
-
-  function setsMatch(a, b) {
-    if (a.length !== b.length) return false;
-    var sorted = a.slice().sort();
-    var sortedB = b.slice().sort();
-    return sorted.every(function (v, i) { return v === sortedB[i]; });
-  }
-
-  function render() {
-    var type = typeEl.value;
-    var units = parseInt(unitsEl.value, 10) || 0;
-    var services = getChecked();
-    var rush = timelineEl.value === 'rush';
-    var isLaunchCandidate = (type === 'development' || type === 'villa' || type === 'hospitality')
-      && units >= 5 && setsMatch(services, LAUNCH_SET);
-
-    list.innerHTML = '';
-    services.forEach(function (s) {
-      var li = document.createElement('li');
-      li.textContent = LABELS[s] || s;
-      list.appendChild(li);
-    });
-
-    if (services.length === 0) {
-      headline.textContent = 'Pick at least one service to see a scope.';
-      body.textContent = '';
-      cta.textContent = 'Send a brief instead';
-      return;
-    }
-
-    if (isLaunchCandidate) {
-      headline.textContent = 'Matches the Immersive Property Launch';
-      body.textContent = 'IDR 25,000,000 reference, one launch system. ' +
-        (rush ? 'Rush timelines affect scheduling, mention it in your brief.' : 'Standard scheduling applies.');
-      cta.textContent = 'Request a review';
-    } else {
-      headline.textContent = 'Custom scope';
-      body.textContent = 'This combination sits outside the published launch package. ' +
-        'Starting price available after a brief. ' +
-        (rush ? 'Flag the rush timeline when you send it.' : '');
-      cta.textContent = 'Request an estimate';
-    }
-  }
-
-  form.addEventListener('input', render);
-  render();
-})();
-</script>
 </body>
 </html>
