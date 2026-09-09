@@ -471,6 +471,38 @@
             </select>
           </div>
           <div class="field">
+            <label for="ent-location">Location <span class="hint">(optional)</span></label>
+            <input type="text" id="ent-location" name="location" placeholder="e.g. Kerobokan, Bali">
+          </div>
+          <div class="field">
+            <label for="ent-units">Number of units <span class="hint">(optional)</span></label>
+            <input type="number" id="ent-units" name="units" min="0" value="5">
+          </div>
+          <div class="field">
+            <label for="ent-stage">Construction stage <span class="hint">(optional)</span></label>
+            <select id="ent-stage" name="construction-stage">
+              <option value="" selected>Select one</option>
+              <option>Planning</option>
+              <option>Under construction</option>
+              <option>Near completion</option>
+              <option>Completed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ent-timeline">Timeline <span class="hint">(optional)</span></label>
+            <select id="ent-timeline" name="timeline">
+              <option value="" selected>Select one</option>
+              <option>As soon as possible</option>
+              <option>1 to 3 months</option>
+              <option>3 to 6 months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="ent-web">Website or Instagram <span class="hint">(optional)</span></label>
+            <input type="text" id="ent-web" name="website-instagram" placeholder="Link to the project or your Instagram">
+          </div>
+          <div class="field">
             <label for="ent-message">Message</label>
             <textarea id="ent-message" name="message" required placeholder="Site, unit count, timeline, and what is blocking the yes."></textarea>
           </div>

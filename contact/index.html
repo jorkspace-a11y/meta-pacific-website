@@ -190,6 +190,49 @@
             </select>
           </div>
           <div class="field">
+            <label for="cf-location">Location <span class="hint">(optional)</span></label>
+            <input type="text" id="cf-location" name="location" placeholder="e.g. Kerobokan, Bali">
+          </div>
+          <div class="field">
+            <label for="cf-units">Number of units <span class="hint">(optional)</span></label>
+            <input type="number" id="cf-units" name="units" min="0">
+          </div>
+          <div class="field">
+            <label for="cf-stage">Construction stage <span class="hint">(optional)</span></label>
+            <select id="cf-stage" name="construction-stage">
+              <option value="" selected>Select one</option>
+              <option>Planning</option>
+              <option>Under construction</option>
+              <option>Near completion</option>
+              <option>Completed</option>
+              <option>Not applicable</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-timeline">Timeline <span class="hint">(optional)</span></label>
+            <select id="cf-timeline" name="timeline">
+              <option value="" selected>Select one</option>
+              <option>As soon as possible</option>
+              <option>1 to 3 months</option>
+              <option>3 to 6 months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-budget">Budget range <span class="hint">(optional)</span></label>
+            <select id="cf-budget" name="budget-range">
+              <option value="" selected>Select one</option>
+              <option>Under IDR 25,000,000</option>
+              <option>Around IDR 25,000,000 (Immersive Property Launch)</option>
+              <option>Above IDR 25,000,000 / ongoing work</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-web">Website or Instagram <span class="hint">(optional)</span></label>
+            <input type="text" id="cf-web" name="website-instagram" placeholder="Link to the project or your Instagram">
+          </div>
+          <div class="field">
             <label for="cf-message">Message</label>
             <textarea id="cf-message" name="message" required></textarea>
           </div>
