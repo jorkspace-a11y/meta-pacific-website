@@ -53,6 +53,8 @@
 }
 
 .capture-stage {
+  position: absolute;
+  inset: 0;
   transform-origin: 50% 50%;
   will-change: transform;
   transition: transform 0.45s var(--ease-arrive);
