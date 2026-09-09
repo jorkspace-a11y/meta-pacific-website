@@ -160,6 +160,54 @@
   border-radius: 8px;
 }
 
+/* Flight-path scroll indicator — the signature motif doing a real job.
+   Sits above the sticky header, reads as a horizon line rather than a
+   progress bar borrowed from a reading app. */
+.flight-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 60;
+  pointer-events: none;
+}
+.flight-progress-line {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  opacity: 0.5;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.flight-progress-dot {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  margin: -2.5px 0 0 -2.5px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+/* Route fade — continuity between pages, never a blocking curtain. */
+.route-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--cream);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flight-progress,
+  .route-veil {
+    display: none !important;
+  }
+}
+
 /* GSAP-driven reveal targets: CSS only sets the "before" state.
    GSAP/ScrollTrigger animates to visible via inline styles, which
    beat these class rules on specificity — no transition properties
