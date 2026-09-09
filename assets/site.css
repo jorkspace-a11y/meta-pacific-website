@@ -76,7 +76,12 @@ body {
   background-attachment: fixed;
 }
 
-img { max-width: 100%; display: block; }
+/* height:auto so an image's width/height attributes stay a ratio hint for
+   layout and never survive as a fixed pixel height once CSS resizes the
+   width. Without it a plate sized to 100% width keeps the attribute height
+   and stretches. Components that own their own box (.work-thumb img,
+   .ed-panel img) set height explicitly and win on specificity. */
+img { max-width: 100%; height: auto; display: block; }
 
 .display { font-family: var(--font-sans); }
 .mono { font-family: var(--font-sans); }
