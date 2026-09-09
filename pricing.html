@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add("js");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="Pricing | Meta Pacific">
+<meta property="og:image" content="https://metapacific.co/og-image.png">
+<meta property="og:url" content="https://metapacific.co/pricing.html">
+<meta name="twitter:card" content="summary_large_image">
+<title>Pricing | Meta Pacific</title>
+<meta name="description" content="One published launch price. Everything else scoped after a brief. No fake discounts, no invented monthly numbers.">
+<link rel="canonical" href="https://metapacific.co/pricing.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://metapacific.co/"},{"@type":"ListItem","position":2,"name":"Pricing","item":"https://metapacific.co/pricing.html"}]}</script>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#ede9de" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/live.css">
+<style>
+.pricing-tabs { display: flex; gap: 8px; margin: clamp(24px, 4vw, 40px) 0; border-bottom: 1px solid var(--line); }
+.pricing-tab { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 600; padding: 12px 4px; margin-right: 24px; background: none; border: none; border-bottom: 2px solid transparent; color: var(--ink-muted); cursor: pointer; }
+.pricing-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.pricing-panel { display: none; }
+.pricing-panel.is-active { display: block; }
+.pricing-note { margin: 24px 0 0; color: var(--ink-muted); font-size: 0.86rem; max-width: 46em; }
+.custom-card { border: 1px solid var(--line); padding: 28px; display: flex; flex-direction: column; gap: 14px; }
+.custom-card h3 { margin: 0; }
+.custom-card ul { margin: 0; padding-left: 18px; color: var(--ink-soft); }
+.custom-card li { margin: 4px 0; }
+</style>
+</head>
+<body>
+<header>
+  <nav class="bar" data-nav>
+    <a class="logo-chip" href="index.html"><img class="logo-mark logo-mark-on-light" src="assets/logo.png" alt="Meta Pacific"><img class="logo-mark logo-mark-on-dark" src="assets/logo-on-dark.png" alt=""></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-shell" id="site-nav">
+      <ul class="nav-links">
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-work">Work <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel" id="panel-work">
+            <a href="work/">
+              <span class="nav-panel-title">Selected work</span>
+              <span class="nav-panel-desc">FPV, virtual tours, and property films from the field.</span>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-services">Services <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel nav-panel-wide" id="panel-services">
+            <div class="nav-panel-grid">
+              <a href="services/strategy/"><span class="nav-panel-title">Strategy</span><span class="nav-panel-desc">Positioning, messaging, funnel logic.</span></a>
+              <a href="services/visual-production/"><span class="nav-panel-title">Visual production</span><span class="nav-panel-desc">Films, photography, creative direction.</span></a>
+              <a href="services/drone-fpv/"><span class="nav-panel-title">Drone and FPV</span><span class="nav-panel-desc">Spatial storytelling from the air.</span></a>
+              <a href="services/virtual-tours/"><span class="nav-panel-title">Virtual tours</span><span class="nav-panel-desc">Walkthroughs that sell the place.</span></a>
+              <a href="services/web-landing-pages/"><span class="nav-panel-title">Web and landing pages</span><span class="nav-panel-desc">Pages that turn viewers into leads.</span></a>
+              <a href="services/growth/"><span class="nav-panel-title">Growth systems</span><span class="nav-panel-desc">CRM, tracking, experiments.</span></a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-solutions">Solutions <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel" id="panel-solutions">
+            <a href="for-whom/enterprise/"><span class="nav-panel-title">Developers and operators</span><span class="nav-panel-desc">Keep every launch moving without losing the look.</span></a>
+            <a href="solutions.html#hospitality"><span class="nav-panel-title">Hospitality and real estate</span><span class="nav-panel-desc">Sell confidence before the flight.</span></a>
+            <a href="solutions.html#brands"><span class="nav-panel-title">Lifestyle brands</span><span class="nav-panel-desc">Identity and content that keep showing up.</span></a>
+            <a href="solutions.html#founders"><span class="nav-panel-title">Founders</span><span class="nav-panel-desc">Make the person behind the company legible.</span></a>
+          </div>
+        </li>
+        <li><a href="pricing.html" aria-current="page">Pricing</a></li>
+        <li><a href="field-notes/">Field Notes</a></li>
+        <li class="nav-item has-panel">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-controls="panel-about">About <svg class="nav-chevron" viewBox="0 0 12 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
+          <div class="nav-panel" id="panel-about">
+            <a href="about.html"><span class="nav-panel-title">The studio</span><span class="nav-panel-desc">Who we are and how the work is run.</span></a>
+            <a href="values.html"><span class="nav-panel-title">Our values</span><span class="nav-panel-desc">Purpose, mission, and working standards.</span></a>
+          </div>
+        </li>
+      </ul>
+      <a class="btn btn-solid btn-sm nav-cta-mobile" href="contact.html">Start a Project</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm" href="contact.html">Start a Project</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom: clamp(24px, 4vw, 40px);">
+    <div class="wrap">
+      <p class="label">Pricing</p>
+      <h1>Clear about what is fixed. Honest about what is custom.</h1>
+      <p class="hero-sub">One published launch price. Ongoing work is quoted after we have seen the brief. No fake discounts, no "most popular" badge, no invented monthly number.</p>
+    </div>
+  </section>
+
+  <section class="rule-top">
+    <div class="wrap">
+      <div class="pricing-tabs" role="tablist" aria-label="Engagement models">
+        <button class="pricing-tab" role="tab" id="tab-onetime" aria-controls="panel-onetime" aria-selected="true">One-Time</button>
+        <button class="pricing-tab" role="tab" id="tab-monthly" aria-controls="panel-monthly" aria-selected="false" tabindex="-1">Monthly</button>
+        <button class="pricing-tab" role="tab" id="tab-annual" aria-controls="panel-annual" aria-selected="false" tabindex="-1">Annual</button>
+      </div>
+
+      <div class="pricing-panel is-active" role="tabpanel" id="panel-onetime" aria-labelledby="tab-onetime">
+        <div class="price-grid">
+          <article class="price-card">
+            <p class="label">Open offer</p>
+            <p class="amount">IDR 25,000,000 <span>reference, one launch</span></p>
+            <h3>Immersive Property Launch</h3>
+            <p>For Bali developers with five or more units who need the project understood and sold before the build is finished.</p>
+            <ul>
+              <li>Virtual tour</li>
+              <li>FPV walkthrough</li>
+              <li>Aerial footage</li>
+              <li>Sales-oriented property film</li>
+              <li>Short-form social assets</li>
+            </ul>
+            <a class="btn btn-solid" href="contact.html">Request a review</a>
+          </article>
+          <article class="price-card">
+            <p class="label">Custom scope</p>
+            <p class="amount">Starting price available after brief</p>
+            <h3>Property films, campaigns, FPV shoots, websites</h3>
+            <p>Any one-time project outside the Immersive Property Launch. We do not fabricate a number before we have seen the brief.</p>
+            <ul>
+              <li>Property and brand films</li>
+              <li>Campaign production</li>
+              <li>FPV and aerial shoots</li>
+              <li>Virtual-tour projects</li>
+              <li>Websites and landing pages</li>
+            </ul>
+            <a class="btn btn-outline" href="contact.html">Request an estimate</a>
+          </article>
+        </div>
+        <p class="pricing-note">Reference price for one launch system. Scope can change it.</p>
+      </div>
+
+      <div class="pricing-panel" role="tabpanel" id="panel-monthly" aria-labelledby="tab-monthly" hidden>
+        <div class="custom-card">
+          <p class="label">Recurring creative support</p>
+          <h3>Monthly Creative Subscription</h3>
+          <p>For brands that need a steady queue of video, motion, social creative, design, and landing-page updates without running a one-off brief every time.</p>
+          <ul>
+            <li>Requests submitted as they come up, prioritized on intake</li>
+            <li>Turnaround depends on the queue and what is already in production</li>
+            <li>Revisions are part of delivery within the agreed scope</li>
+            <li>Scope and cadence are set after we see the volume of work involved</li>
+          </ul>
+          <p class="pricing-note" style="margin:0;">No invented monthly fee until scope is confirmed. Send what you need in the queue and we quote against it.</p>
+          <a class="btn btn-solid" href="contact.html" style="align-self:flex-start;">Talk through scope</a>
+        </div>
+      </div>
+
+      <div class="pricing-panel" role="tabpanel" id="panel-annual" aria-labelledby="tab-annual" hidden>
+        <div class="custom-card">
+          <p class="label">Integrated partnership</p>
+          <h3>Annual Partnership</h3>
+          <p>A 12-month relationship for clients who need Meta Pacific as an external creative-tech and growth team across recurring production, launches, and reporting.</p>
+          <ul>
+            <li>Recurring production and campaign planning</li>
+            <li>Website and landing-page optimization over time</li>
+            <li>CRM and measurement support</li>
+            <li>An annual content and production roadmap</li>
+          </ul>
+          <p class="pricing-note" style="margin:0;">Annual partnership, scoped to requirements. No number is published until we understand the year ahead.</p>
+          <a class="btn btn-solid" href="contact.html" style="align-self:flex-start;">Start the conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <p class="foot-name">Meta Pacific</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/metapacific_/">Instagram</a>
+        <a href="https://www.linkedin.com/company/meta-pacific/" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://wa.me/6282318639834" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+      <p class="foot-copy">&copy; 2026 Meta Pacific. All rights reserved.</p>
+      <div class="foot-legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="disclosure.html">Disclosure</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="assets/nav.js" defer></script>
+<script src="assets/live.js" defer></script>
+<script>
+(function () {
+  var tabs = document.querySelectorAll('.pricing-tab');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) {
+        t.setAttribute('aria-selected', 'false');
+        t.tabIndex = -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = true;
+        document.getElementById(t.getAttribute('aria-controls')).classList.remove('is-active');
+      });
+      tab.setAttribute('aria-selected', 'true');
+      tab.tabIndex = 0;
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      panel.hidden = false;
+      panel.classList.add('is-active');
+    });
+    tab.addEventListener('keydown', function (e) {
+      var list = Array.prototype.slice.call(tabs);
+      var i = list.indexOf(tab);
+      if (e.key === 'ArrowRight') list[(i + 1) % list.length].focus();
+      if (e.key === 'ArrowLeft') list[(i - 1 + list.length) % list.length].focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>
