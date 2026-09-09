@@ -834,12 +834,24 @@ button.btn { cursor: pointer; font-family: inherit; }
     transform: none;
     min-width: 0;
     width: 100%;
-    margin: 4px 0 8px;
+    margin: 0;
     box-shadow: none;
     background: color-mix(in srgb, var(--cream-raised) 88%, transparent);
+    /* visibility:hidden (set above for desktop) still reserves layout
+       space in normal flow -- collapse it for real on mobile so a closed
+       accordion item takes zero height instead of leaving an invisible gap. */
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    transition: max-height 0.28s var(--ease-out), opacity 0.2s var(--ease-out), visibility 0.28s, margin 0.28s var(--ease-out), padding 0.28s var(--ease-out);
   }
   .nav-item.is-open .nav-panel {
     transform: none;
+    max-height: 600px;
+    margin: 4px 0 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   .nav-panel-grid { grid-template-columns: 1fr; }
   .nav-shell .nav-cta-mobile {
