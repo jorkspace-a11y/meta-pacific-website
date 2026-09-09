@@ -5,6 +5,61 @@
 })();
 
 (function () {
+  var UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid"];
+  var STORAGE_KEY = "mp_attribution";
+
+  function readParams() {
+    var params = new URLSearchParams(location.search);
+    var found = {};
+    UTM_KEYS.forEach(function (key) {
+      var v = params.get(key);
+      if (v) found[key] = v;
+    });
+    return found;
+  }
+
+  function saveAttribution() {
+    var found = readParams();
+    if (Object.keys(found).length === 0) return;
+    found.landing_page = location.pathname;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(found));
+    } catch (e) {}
+  }
+
+  function getAttribution() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function injectIntoForms() {
+    var attribution = getAttribution();
+    if (Object.keys(attribution).length === 0) return;
+    document.querySelectorAll("form.contact-form-card").forEach(function (form) {
+      Object.keys(attribution).forEach(function (key) {
+        if (form.querySelector('input[name="' + key + '"]')) return;
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = attribution[key];
+        form.appendChild(input);
+      });
+    });
+  }
+
+  saveAttribution();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", injectIntoForms);
+  } else {
+    injectIntoForms();
+  }
+})();
+
+(function () {
   var root = document.querySelector("[data-nav]");
   if (!root) return;
 
