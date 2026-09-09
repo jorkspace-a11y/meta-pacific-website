@@ -51,11 +51,40 @@
     });
   }
 
+  function track(name, params) {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", name, params || {});
+    }
+  }
+
+  function wireFormEvents() {
+    document.querySelectorAll("form.contact-form-card").forEach(function (form) {
+      var formName = form.getAttribute("data-form-name") || "unknown";
+      var started = false;
+      form.addEventListener(
+        "focusin",
+        function () {
+          if (started) return;
+          started = true;
+          track("lead_form_start", { form_name: formName });
+        },
+        { once: true }
+      );
+      form.addEventListener("submit", function () {
+        track("lead_form_submit", { form_name: formName });
+      });
+    });
+  }
+
   saveAttribution();
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", injectIntoForms);
+    document.addEventListener("DOMContentLoaded", function () {
+      injectIntoForms();
+      wireFormEvents();
+    });
   } else {
     injectIntoForms();
+    wireFormEvents();
   }
 })();
 
