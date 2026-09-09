@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>document.documentElement.classList.add("js");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Editorial layout preview | Meta Pacific</title>
+<meta name="description" content="Local design preview of the editorial homepage layout with a work slider. Not linked from the live site.">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/live.css">
+<style>
+/* Editorial preview layer. Scoped to this page so nothing here can leak
+   into production until it is approved. */
+.ed-wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 44px); }
+
+.ed-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 20px;
+}
+
+/* Hero: headline column beside a full-bleed-feeling plate */
+.ed-hero { padding: clamp(40px, 6vw, 72px) 0 clamp(32px, 5vw, 56px); }
+.ed-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+@media (max-width: 900px) { .ed-hero-grid { grid-template-columns: 1fr; } }
+
+.ed-hero h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(34px, 5.4vw, 62px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  margin: 0 0 22px;
+  text-wrap: balance;
+}
+.ed-hero-sub {
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: 40ch;
+  margin: 0 0 30px;
+}
+.ed-cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.ed-plate { position: relative; }
+.ed-plate img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.ed-plate-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* Rule band: the mockup's "SPACES. STORIES. GROWTH." line */
+.ed-rule-band {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(22px, 3vw, 34px) 0;
+  border-top: 1px solid var(--line);
+}
+.ed-rule-band span {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.ed-rule-band i { flex: 1; height: 1px; background: var(--ink); opacity: 0.28; }
+
+/* Selected work slider */
+.ed-section { padding: clamp(44px, 6vw, 76px) 0; }
+.ed-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.ed-section-head h2 {
+  font-family: var(--font-sans);
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
+}
+.ed-section-head p {
+  font-family: var(--font-serif);
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 44ch;
+  font-size: 0.95rem;
+}
+.ed-head-right { display: flex; align-items: center; gap: 16px; }
+.ed-viewall {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  text-decoration: none;
+  color: var(--ink-strong);
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+/* Expanding panel gallery: hover or focus a project and it opens while the
+   others yield. Direct manipulation, not a carousel you click through. */
+.ed-gallery {
+  display: flex;
+  gap: 10px;
+  height: clamp(360px, 52vh, 520px);
+}
+.ed-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: flex-grow 0.62s var(--ease-out);
+  will-change: flex-grow;
+}
+/* One panel opens; siblings compress. Pointer devices only, so touch
+   never gets stuck in a hover state. */
+@media (hover: hover) and (min-width: 861px) {
+  .ed-gallery:hover .ed-panel { flex-grow: 0.62; }
+  .ed-gallery .ed-panel:hover { flex-grow: 3.4; }
+}
+.ed-panel:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.ed-panel.is-open { flex-grow: 3.4; }
+
+.ed-panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.62s var(--ease-out);
+}
+.ed-panel:hover img, .ed-panel.is-open img { transform: scale(1.03); }
+.ed-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000000b8, #00000026 46%, transparent 72%);
+}
+.ed-panel-body {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 18px 18px 20px;
+  color: #ede9de;
+  z-index: 1;
+}
+.ed-panel-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.82;
+  margin: 0 0 6px;
+}
+.ed-panel-body h3 {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  white-space: nowrap;
+}
+/* The place line is the reward for opening a panel. */
+.ed-panel-place {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.86rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s var(--ease-out), max-height 0.5s var(--ease-out);
+  white-space: nowrap;
+}
+.ed-panel:hover .ed-panel-place,
+.ed-panel:focus-visible .ed-panel-place,
+.ed-panel.is-open .ed-panel-place { opacity: 0.86; max-height: 2em; margin-top: 4px; }
+
+/* Below the hover breakpoint it becomes a snap rail you swipe. */
+@media (max-width: 860px) {
+  .ed-gallery {
+    height: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .ed-gallery::-webkit-scrollbar { display: none; }
+  .ed-panel {
+    flex: 0 0 78%;
+    height: clamp(320px, 62vw, 420px);
+    scroll-snap-align: start;
+    transition: none;
+  }
+  .ed-panel-place { opacity: 0.86; max-height: 2em; margin-top: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ed-panel, .ed-panel img, .ed-panel-place { transition: none !important; }
+}
+
+.ed-note {
+  border-top: 1px solid var(--line);
+  padding: 22px 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  max-width: 62ch;
+}
+</style>
+</head>
+<body>
+<header>
+  <nav class="bar" data-nav>
+    <a class="logo-chip" href="../index.html"><img class="logo-mark logo-mark-on-light" src="../assets/logo.png" alt="Meta Pacific"><img class="logo-mark logo-mark-on-dark" src="../assets/logo-on-dark.png" alt=""></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-shell" id="site-nav">
+      <ul class="nav-links">
+        <li><a href="../work/">Work</a></li>
+        <li><a href="../services/">Services</a></li>
+        <li><a href="../solutions/">Solutions</a></li>
+        <li><a href="../pricing/">Pricing</a></li>
+        <li><a href="../resources/">Resources</a></li>
+        <li><a href="../about/">About</a></li>
+      </ul>
+      <a class="btn btn-solid btn-sm nav-cta-mobile" href="../contact/">Start a Project</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm" href="../contact/">Start a Project</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="ed-hero">
+    <div class="ed-wrap">
+      <div class="ed-hero-grid">
+        <div>
+          <p class="ed-eyebrow">Bali based, globally connected</p>
+          <h1>A place should sell before anyone has to fly in.</h1>
+          <p class="ed-hero-sub">We shoot the property, build the walkthrough, and wire the page that turns viewers into leads. Strategy, production and tech as one job, run from Bali.</p>
+          <div class="ed-cta-row">
+            <a class="btn btn-solid" href="../contact/">Start a Project</a>
+            <a class="btn btn-outline" href="../work/">View Work</a>
+          </div>
+        </div>
+        <div class="ed-plate">
+          <img src="../assets/work/sardine-fpv.jpg" alt="FPV pass over Sardine Rote resort, East Nusa Tenggara" width="1200" height="900">
+          <div class="ed-plate-caption">
+            <span>East Nusa Tenggara</span>
+            <span>Shown before the flight</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ed-wrap">
+    <div class="ed-rule-band">
+      <span>Spaces. Stories. Growth.</span>
+      <i></i>
+    </div>
+  </div>
+
+  <section class="ed-section">
+    <div class="ed-wrap">
+      <div class="ed-section-head">
+        <div>
+          <h2>Selected work</h2>
+          <p>Land, villas, and developments. FPV, virtual tours, and the page they belong on.</p>
+        </div>
+        <div class="ed-head-right">
+          <a class="ed-viewall" href="../work/">View all work</a>
+        </div>
+      </div>
+
+      <div class="ed-gallery" data-gallery role="list" aria-label="Selected work">
+        <a class="ed-panel" role="listitem" href="../work/01-anjuna-bay/">
+          <img src="../assets/work/anjuna-fpv.jpg" alt="FPV tour of Anjuna Bay development" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">FPV tour</p><h3>Anjuna Bay</h3><span class="ed-panel-place">Project development, Bali</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/01-anjuna-bay/">
+          <img src="../assets/work/anjuna-vt.jpg" alt="360 walkthrough of Anjuna Bay" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">Virtual tour</p><h3>Anjuna Bay</h3><span class="ed-panel-place">360 walkthrough, Bali</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/02-3d-renders/">
+          <img src="../assets/work/renders-vt.jpg" alt="Virtual tour built from 3D property renders" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">Pre-construction</p><h3>3D Renders</h3><span class="ed-panel-place">Rooms that do not exist yet</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/03-sakti/">
+          <img src="../assets/work/sakti-fpv.jpg" alt="FPV tour of the Sakti land project" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">FPV tour</p><h3>Sakti Project</h3><span class="ed-panel-place">Land, Nusa Penida</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/04-invest-island/">
+          <img src="../assets/work/invest-vt.jpg" alt="360 walkthrough of the Invest Island site" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">Virtual tour</p><h3>Invest Island</h3><span class="ed-panel-place">360 site walkthrough</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/05-mini-map/">
+          <img src="../assets/work/minimap-fpv.jpg" alt="Aerial orientation pass over the Mini Map site" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">Aerial</p><h3>Mini Map</h3><span class="ed-panel-place">Site orientation, aerial</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/06-sardine-rote/">
+          <img src="../assets/work/sardine-fpv.jpg" alt="FPV tour of Sardine Rote resort" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">FPV tour</p><h3>Sardine Rote</h3><span class="ed-panel-place">Resort, East Nusa Tenggara</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/07-k-club-ubud/">
+          <img src="../assets/work/kclub-vt.jpg" alt="Virtual tour of K-Club Ubud villa" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">Virtual tour</p><h3>K-Club Ubud</h3><span class="ed-panel-place">Villa, Bali</span></div>
+        </a>
+        <a class="ed-panel" role="listitem" href="../work/08-villa-koh-samui/">
+          <img src="../assets/work/kohsamui-fpv.jpg" alt="FPV tour of a villa in Koh Samui" loading="lazy">
+          <div class="ed-panel-body"><p class="ed-panel-kicker">FPV tour</p><h3>Villa Koh Samui</h3><span class="ed-panel-place">Villa, Thailand</span></div>
+        </a>
+      </div>
+
+      <p class="ed-note">Preview page. Layout and gallery only, using real projects and approved copy. Not linked from the live site and marked noindex.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <p class="foot-name">Meta Pacific</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/metapacific_/">Instagram</a>
+        <a href="https://www.linkedin.com/company/meta-pacific/" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://wa.me/6282318639834" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+      <p class="foot-copy">&copy; 2026 Meta Pacific. All rights reserved.</p>
+      <div class="foot-legal">
+        <a href="../privacy/">Privacy</a>
+        <a href="../terms/">Terms</a>
+        <a href="../disclosure/">Disclosure</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/nav.js" defer></script>
+<script>
+/* The gallery's expansion is pure CSS on hover, so it works with no JS.
+   This only adds keyboard parity: focusing a panel opens it the same way
+   hovering does, and the open state follows focus. */
+(function () {
+  var gallery = document.querySelector("[data-gallery]");
+  if (!gallery) return;
+  var panels = Array.prototype.slice.call(gallery.querySelectorAll(".ed-panel"));
+
+  panels.forEach(function (panel) {
+    panel.addEventListener("focus", function () {
+      panels.forEach(function (p) { p.classList.toggle("is-open", p === panel); });
+    });
+    panel.addEventListener("blur", function () {
+      panel.classList.remove("is-open");
+    });
+  });
+})();
+</script>
+</body>
+</html>
