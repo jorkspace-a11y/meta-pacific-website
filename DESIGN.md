@@ -13,10 +13,10 @@ Never use em dashes. Prefer a period, comma, or a new sentence. Em dashes are an
 
 ## Visual system
 - Palette: cream `#ede9de`, black `#000000`, white `#ffffff` only
-- Type from Framer: Poppins Title 42 / Subtitle 36 / Body 16 / Caption 14 (bold). Mukti Subheading 36 (regular; Mukta on the web).
-- Brand mark: stacked META box + PACIFIC + wave over turtle watermark (`assets/logo.png` nav, `assets/logo-hero.png` heroes). Brand lockup is the hero-level signal; headlines sit under it.
-- Structure: Tembo-like tokens, hairlines, pill CTAs; Oura/Tembo nav with chevron flyouts and mobile drawer
-- Atmosphere: Oura-like breathing room, full-bleed black capture plane
+- Type: DM Sans for UI, titles, and nav. IBM Plex Serif for body. Scale: Title 42 / Subtitle 36 / Subheading 36 / Body 16 / Caption 14.
+- Brand mark: official lockup `assets/logo.png` (light) and `assets/logo-on-dark.png` (dark).
+- Structure: cream surfaces, hairlines, square buttons, chevron flyout nav, full-viewport mobile drawer
+- Atmosphere: breathing room, full-bleed black capture plane
 - Motion thesis: the flight path is the living signature; work pieces arrive as a formation; no fade-up on every section
 
 ## Anti-references

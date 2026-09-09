@@ -1,5 +1,5 @@
 /* Meta Pacific site system
-   Type from KKBC: DM Sans (UI, titles) + IBM Plex Serif (body).
+   Type: DM Sans (UI, titles, nav) + IBM Plex Serif (body).
    Title 42 / Subtitle 36 / Subheading 36 / Body 16 / Caption 14, bold where marked.
    Palette: cream #ede9de, black #000000, white #ffffff. */
 
@@ -112,7 +112,7 @@ h3 {
   letter-spacing: -0.015em;
 }
 
-/* ---------- Nav (Oura chevrons + Tembo flyout panels) ---------- */
+/* ---------- Nav ---------- */
 header {
   position: sticky; top: 0; z-index: 40;
   background: color-mix(in srgb, var(--cream) 78%, transparent);
@@ -377,7 +377,7 @@ section {
 }
 .statement .accent-word { color: var(--signal); }
 
-/* ---------- Pillars / cards — Tembo hairlines, less chrome ---------- */
+/* ---------- Pillars / cards ---------- */
 .section-head {
   display: flex; justify-content: space-between; align-items: flex-end;
   gap: 28px; margin-bottom: 52px; flex-wrap: wrap;
