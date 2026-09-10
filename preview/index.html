@@ -7,6 +7,18 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Editorial layout preview | Meta Pacific</title>
 <meta name="description" content="Local design preview of the editorial homepage layout with a work slider. Not linked from the live site.">
+<!-- This page repeats the homepage hero copy in a different layout, which is a
+     duplicate-content collision waiting to happen on an indexed domain. The
+     noindex above is what prevents it, so robots.txt deliberately does NOT
+     disallow /preview/: blocking the crawl would stop Google reading the
+     noindex and the page could stay indexed on inbound links alone. The
+     self-referencing canonical keeps any stray link pointing here, not at the
+     real homepage. -->
+<link rel="canonical" href="https://metapacific.co/preview/">
+<meta property="og:title" content="Editorial layout preview | Meta Pacific">
+<meta property="og:description" content="Unlisted design preview. Not the live Meta Pacific homepage.">
+<meta property="og:url" content="https://metapacific.co/preview/">
+<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DJQ0V48YK2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DJQ0V48YK2');
+  // Record what was actually missed, not just that a 404 happened, so a broken
+  // inbound link can be found and fixed rather than guessed at.
+  gtag('event', 'page_not_found', {
+    page_path: location.pathname,
+    page_referrer: document.referrer || '(none)'
+  });
+</script>
+<script>document.documentElement.classList.add("js");</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<title>Page not found | Meta Pacific</title>
+<meta name="description" content="That page is not here. The work, the services, and the studio are one link away.">
+<!-- Every path on this page is root-relative. GitHub Pages serves /404.html for
+     a miss at any depth, so relative paths would resolve against the URL the
+     visitor typed and break the whole page. -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#ede9de" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/live.css">
+<style>
+  /* The hero reveal is keyed to .hero and driven by GSAP. This page has no
+     GSAP, so opt out of the parked-at-zero state entirely. */
+  .nf { padding: clamp(72px, 12vw, 148px) 0 clamp(56px, 9vw, 112px); }
+  .nf-code {
+    font-family: var(--font-sans);
+    font-size: var(--size-caption);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 18px;
+  }
+  .nf h1 { max-width: 16ch; }
+  .nf-sub {
+    max-width: 46ch;
+    margin: 22px 0 0;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+  .nf-path {
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    margin: 14px 0 0;
+    word-break: break-all;
+  }
+  .nf-links {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: clamp(40px, 6vw, 64px);
+    padding-top: clamp(28px, 4vw, 40px);
+    border-top: 1px solid var(--line);
+  }
+  .nf-links a {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-decoration: none;
+    color: inherit;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--line);
+    transition: opacity 0.2s var(--ease-out);
+  }
+  .nf-links a:hover { opacity: 0.62; }
+  .nf-links strong {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.02rem;
+  }
+  .nf-links span { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.55; }
+  @media (max-width: 760px) { .nf-links { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <nav class="bar" data-nav>
+    <a class="logo-chip" href="/"><img class="logo-mark logo-mark-on-light" src="/assets/logo.png" alt="Meta Pacific"><img class="logo-mark logo-mark-on-dark" src="/assets/logo-on-dark.png" alt=""></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-shell" id="site-nav">
+      <ul class="nav-links">
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/solutions/">Solutions</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/resources/">Resources</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+      <a class="btn btn-solid btn-sm nav-cta-mobile" href="/contact/">Start a Project</a>
+    </div>
+    <div class="nav-right">
+      <a class="btn btn-solid btn-sm" href="/contact/">Start a Project</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="nf">
+    <div class="wrap">
+      <p class="nf-code">Error 404</p>
+      <h1>That page is not here.</h1>
+      <p class="nf-sub">The link is broken, or the page moved when the site dropped its file extensions. Everything below still works.</p>
+      <p class="nf-path" id="nf-path"></p>
+
+      <div class="nf-links">
+        <a href="/work/">
+          <strong>Selected work</strong>
+          <span>FPV, virtual tours, and property films from the field.</span>
+        </a>
+        <a href="/services/">
+          <strong>Services</strong>
+          <span>Strategy, production, aerial, tours, pages, tracking.</span>
+        </a>
+        <a href="/contact/">
+          <strong>Start a project</strong>
+          <span>Tell us the site, the timeline, and what is blocking the yes.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <p class="foot-name">Meta Pacific</p>
+      <div class="foot-social">
+        <a href="https://www.instagram.com/metapacific_/">Instagram</a>
+        <a href="https://www.linkedin.com/company/meta-pacific/" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://wa.me/6282318639834" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+      <p class="foot-copy">&copy; 2026 Meta Pacific. All rights reserved.</p>
+      <div class="foot-legal">
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+        <a href="/disclosure/">Disclosure</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Show the visitor which URL missed. textContent, never innerHTML: the path
+  // is attacker-controlled and must never be parsed as markup.
+  document.getElementById("nf-path").textContent = location.pathname;
+</script>
+<script src="/assets/nav.js" defer></script>
+</body>
+</html>
