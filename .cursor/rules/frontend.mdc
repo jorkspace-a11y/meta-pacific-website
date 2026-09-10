@@ -1,0 +1,14 @@
+---
+description: Frontend conventions for the Meta Pacific static site
+globs: "**/*.html,assets/**/*.css,assets/**/*.js"
+alwaysApply: false
+---
+
+This is a static site, not a React app.
+
+- Reuse classes and tokens from `assets/site.css`. Do not add a second palette.
+- New pages follow the existing shell: head icons, fonts, nav, footer. Copy a sibling page rather than inventing a layout.
+- Keep paths relative. The site is served from `/meta-pacific-website/` on GitHub Pages.
+- Nav lives in each HTML file plus `assets/nav.js`. If you change a nav label or href, update every page that has the bar.
+- Motion: one thesis. No fade-up on every section. See `assets/live.js` / `assets/live.css`.
+- After HTML/CSS/JS edits, run `/browser-qa` behavior: open the page, click the changed flow, check mobile.
