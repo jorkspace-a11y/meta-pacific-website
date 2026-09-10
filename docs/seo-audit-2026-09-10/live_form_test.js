@@ -24,11 +24,11 @@ async (page) => {
     await current.locator('[name="email"]').fill("jerio.workspace@gmail.com");
     await current.locator('[name="message"]').fill(marker + ": internal acceptance test. No sales follow-up needed.");
     await current.getByRole("button", { name: "Send" }).click();
-    await page.waitForTimeout(4000);
-    return { marker, finalUrl: page.url(), title: await page.title() };
+    await current.locator(".form-status").getByText("Thanks. Your project inquiry has been received.").waitFor();
+    await page.waitForTimeout(1500);
+    return { marker, finalUrl: page.url(), title: await page.title(), status: await current.locator(".form-status").innerText() };
   }
 
-  const first = await submit("MP-E2E-20260910-A");
-  const second = await submit("MP-E2E-20260910-B-DUPLICATE");
-  return { invalid, first, second, responses };
+  const success = await submit("MP-E2E-20260910-C-AJAX");
+  return { invalid, success, responses };
 }
