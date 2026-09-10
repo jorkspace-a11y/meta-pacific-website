@@ -1,6 +1,6 @@
 # Meta Pacific — System Handover
 
-Status as of 2026-09-09. Written against the two governing briefs in this
+Status as of 2026-09-10. Written against the two governing briefs in this
 repo's history: `Meta_Pacific_Codex_Master_Prompt_Hostinger.md` (website
 rebuild) and `Meta_Pacific_7_Day_Marketing_System_Challenge.pdf` (full
 marketing system).
@@ -128,6 +128,32 @@ range, website/Instagram, message.
   (Performance/Accessibility/Best Practices/SEO) on mobile.
 
 ## What to check next
+
+### Production acceptance update, 10 September 2026
+
+HTTPS enforcement is enabled. Both HTTP host variants permanently redirect to
+the secure apex. The production robots file allows intended pages and declares
+the sitemap. All 37 sitemap pages now include complete Open Graph descriptions
+and types and pass the 360px overflow check.
+
+The forms now wait for both Formspree and HubSpot to return success. While a
+request is active the Send button is disabled, preventing an accidental double
+submission. `generate_lead` is queued only after both services return 2xx; a
+failed destination leaves the values in place and shows a retry/WhatsApp
+recovery message. Real production submissions returned 200 from both services
+and triggered HubSpot acknowledgements. See `ACCEPTANCE-TEST-2026-09-10.md` for
+markers, failure recovery, evidence, and remaining blockers.
+
+The initial fresh Lighthouse baseline was 65 mobile / 93 desktop. Nonessential
+animation libraries were removed, fonts load outside the rendering path, image
+dimensions were added, and analytics loading was moved out of the initial
+critical path. The final live rerun scored 83 mobile and 93 desktop. These are
+single lab runs from this laptop, not field Core Web Vitals.
+
+The property developer database was not found in the connected Drive or local
+Meta Pacific workspace. Controlled external outreach remains blocked until the
+source list can be located and its commercial contact facts can be qualified.
+Do not use the QA contacts as prospects.
 
 ### Email update, 10 September 2026
 

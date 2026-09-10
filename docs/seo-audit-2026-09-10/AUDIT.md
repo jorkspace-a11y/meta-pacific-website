@@ -1,5 +1,19 @@
 # Meta Pacific SEO audit
 
+## Remediation update — 10 September 2026
+
+The implementation pass after this baseline audit completed the following production fixes:
+
+- Enabled permanent HTTP-to-HTTPS redirects for apex and `www`.
+- Revalidated `robots.txt`, its sitemap reference, and crawl permission for all 37 production URLs.
+- Added the 11 missing Open Graph descriptions and `og:type` to all 37 pages.
+- Fixed the 12 reported mobile overflow cases. The 37-page 360px browser sweep now finds no element outside the viewport.
+- Added accessible logo naming, corrected footer heading order, and improved low-contrast offer text.
+- Removed unused animation libraries and moved fonts and analytics out of the initial rendering path. The final live Lighthouse rerun scored 83 mobile and 93 desktop, up from the 65 mobile baseline while preserving desktop. These are single lab runs, not field Core Web Vitals.
+- Changed form handling so Formspree and HubSpot must both return 2xx before the confirmation appears or `generate_lead` is sent. Invalid input, double click, Formspree failure, and HubSpot failure are covered by the browser harness. Real production requests returned 200 from both services and queued `generate_lead` in the GA4 payload.
+
+The detailed baseline below is retained as the before state. See `../ACCEPTANCE-TEST-2026-09-10.md` for the after-state evidence, recovery steps, and remaining account/outreach blockers.
+
 Audited 10 September 2026, approximately 09:54–10:08 WITA. Live site: https://metapacific.co/. Read-only audit; no production fixes, tracking changes, indexing requests, or purchases made.
 
 ## Outcome
