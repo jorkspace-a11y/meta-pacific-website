@@ -1,5 +1,6 @@
 (function () {
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var compact = window.matchMedia("(max-width: 720px)").matches;
   var hasGSAP = typeof window.gsap !== "undefined";
 
   // Single source of truth. live.css parks exactly these at opacity 0 as the
@@ -38,7 +39,7 @@
 
   // Hero load sequence — one authored entrance, not a generic fade-up.
   var hero = document.querySelector(".hero");
-  if (hero) {
+  if (hero && !compact) {
     var tl = gsap.timeline({ defaults: { ease: ease, duration: 0.7 } });
     tl.to(".hero-brand-mark", { opacity: 1, y: 0 }, 0.05)
       .to(".hero h1", { opacity: 1, y: 0 }, 0.12)
@@ -56,6 +57,13 @@
         0.55
       );
     }
+  } else if (hero) {
+    gsap.set(".hero-brand-mark, .hero h1, .hero-verticals, .hero-sub, .hero-cta-row", {
+      opacity: 1,
+      y: 0,
+      clearProps: "transform",
+    });
+    gsap.set(".capture-panel", { opacity: 1, y: 0, clearProps: "transform" });
   }
 
   // Broad scroll reveal for every card-like group site-wide.

@@ -72,6 +72,8 @@
 
 * { box-sizing: border-box; }
 
+html, body { max-width: 100%; overflow-x: clip; }
+
 body {
   margin: 0;
   color: var(--ink-strong);
@@ -606,9 +608,9 @@ section {
   display: flex; align-items: baseline; gap: 12px; font-size: 0.94rem;
   padding-bottom: 12px; border-bottom: 1px solid #ede9de1f;
 }
-.spotlight-list li .n { font-family: var(--font-sans); font-size: 0.72rem; color: #ede9de66; }
+.spotlight-list li .n { font-family: var(--font-sans); font-size: 0.72rem; color: #ede9de99; }
 .spotlight-list li:last-child { border-bottom: none; }
-.spotlight-note { margin-top: 20px; font-size: 0.78rem; color: #ede9de73; line-height: 1.55; }
+.spotlight-note { margin-top: 20px; font-size: 0.78rem; color: #ede9de99; line-height: 1.55; }
 
 /* ---------- Process ---------- */
 .process-head {
@@ -621,6 +623,7 @@ section {
   grid-template-columns: repeat(3, 1fr);
 }
 .process-step {
+  min-width: 0;
   background: color-mix(in srgb, var(--cream-raised) 82%, transparent);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -695,7 +698,7 @@ footer {
   gap: 24px;
   padding: clamp(32px, 6vw, 56px) 0 32px;
 }
-.foot-links h4 {
+.foot-links h2 {
   margin: 0 0 14px;
   font-family: var(--font-sans);
   font-size: 0.74rem;
@@ -715,7 +718,6 @@ footer {
   align-items: center;
 }
 .foot-links a:hover { color: var(--ink-strong); }
-@
 .foot-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -785,15 +787,17 @@ footer {
 /* ---------- Contact page ---------- */
 .contact-layout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: start; }
 .contact-form-card {
+  min-width: 0;
   background: color-mix(in srgb, var(--cream-raised) 88%, transparent);
   border: 1px solid var(--line); border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft); padding: clamp(28px, 3vw, 44px);
   display: flex; flex-direction: column; gap: 20px;
 }
-.field { display: flex; flex-direction: column; gap: 8px; }
+.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .field label { font-family: var(--font-sans); font-size: 0.85rem; font-weight: 500; color: var(--ink-strong); }
 .field label .hint { font-weight: 400; color: var(--ink-soft); }
 .field input, .field select, .field textarea {
+  display: block; width: 100%; min-width: 0; max-width: 100%;
   font-family: var(--font-sans); font-size: 0.92rem; color: var(--ink-strong);
   background: var(--cream); border: 1px solid var(--line); border-radius: 14px;
   padding: 13px 15px; min-height: 44px; outline: none; transition: border-color 0.15s ease, box-shadow 0.15s ease;
@@ -1295,6 +1299,17 @@ button.btn { cursor: pointer; font-family: inherit; }
 }
 
 @media (max-width: 720px) {
+  /* The heading is the mobile LCP. Show it immediately instead of making
+     visitors and Lighthouse wait for the decorative entrance sequence. */
+  .js .hero-brand-mark,
+  .js .hero h1,
+  .js .hero-verticals,
+  .js .hero-sub,
+  .js .hero-cta-row {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   .hero { padding: 48px 0 0; }
   .hero-top { grid-template-columns: 1fr; gap: 22px; align-items: start; }
   .hero-brand-mark { width: min(168px, 48vw); margin-bottom: 12px; }

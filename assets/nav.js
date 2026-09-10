@@ -150,7 +150,12 @@
           fields: fields,
           context: { pageUri: location.href, pageName: document.title },
         }),
-      }).catch(function () {});
+      }).then(function (response) {
+        if (!response.ok) throw new Error("HubSpot submission failed");
+        track("generate_lead", { form_name: formName, lead_source: "website_form" });
+      }).catch(function () {
+        track("lead_form_error", { form_name: formName, destination: "hubspot" });
+      });
     } catch (e) {}
   }
 

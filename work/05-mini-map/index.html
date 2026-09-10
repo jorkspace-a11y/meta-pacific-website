@@ -16,6 +16,7 @@
 <meta name="description" content="A short aerial orientation so the plot reads as a place, not a pin.">
 <link rel="canonical" href="https://metapacific.co/work/05-mini-map/">
 <meta property="og:title" content="Mini Map | Work | Meta Pacific">
+<meta property="og:type" content="website">
 <meta property="og:description" content="A short aerial orientation so the plot reads as a place, not a pin.">
 <meta property="og:image" content="https://metapacific.co/og-image.png">
 <meta property="og:url" content="https://metapacific.co/work/05-mini-map/">
@@ -29,15 +30,14 @@
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="../../assets/site.css">
-<link rel="stylesheet" href="../../assets/live.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "Mini Map", "url": "https://metapacific.co/work/05-mini-map/", "creator": {"@type": "Organization", "name": "Meta Pacific"}, "about": "FPV tour"}</script>
 </head>
 <body>
 <header>
   <nav class="bar" data-nav>
-    <a class="logo-chip" href="../../index.html"><img class="logo-mark logo-mark-on-light" src="../../assets/logo.png" alt="Meta Pacific"><img class="logo-mark logo-mark-on-dark" src="../../assets/logo-on-dark.png" alt=""></a>
+    <a class="logo-chip" aria-label="Meta Pacific home" href="../../index.html"><img class="logo-mark logo-mark-on-light" width="110" height="48" src="../../assets/logo.png" alt="Meta Pacific"><img class="logo-mark logo-mark-on-dark" width="110" height="48" src="../../assets/logo-on-dark.png" alt=""></a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -194,9 +194,9 @@
 </main>
 <footer>
   <div class="wrap">
-    <div class="foot-links">
+    <nav class="foot-links" aria-label="Footer">
       <div>
-        <h4>Services</h4>
+        <h2>Services</h2>
         <ul>
           <li><a href="../../services/strategy/">Strategy</a></li>
           <li><a href="../../services/visual-production/">Visual production</a></li>
@@ -207,7 +207,7 @@
         </ul>
       </div>
       <div>
-        <h4>Solutions</h4>
+        <h2>Solutions</h2>
         <ul>
           <li><a href="../../for-whom/enterprise/">Developers and operators</a></li>
           <li><a href="../../solutions/#hospitality">Hospitality and real estate</a></li>
@@ -216,7 +216,7 @@
         </ul>
       </div>
       <div>
-        <h4>Resources</h4>
+        <h2>Resources</h2>
         <ul>
           <li><a href="../../field-notes/">Field notes</a></li>
           <li><a href="../../work/">Customer stories</a></li>
@@ -225,14 +225,14 @@
         </ul>
       </div>
       <div>
-        <h4>Company</h4>
+        <h2>Company</h2>
         <ul>
           <li><a href="../../about/">About</a></li>
           <li><a href="../../values/">Our values</a></li>
           <li><a href="../../contact/">Contact</a></li>
         </ul>
       </div>
-    </div>
+    </nav>
     <div class="foot-grid">
       <p class="foot-name">Meta Pacific</p>
       <div class="foot-social">
@@ -250,10 +250,6 @@
   </div>
 </footer>
 <script src="../../assets/nav.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="../../assets/live.js" defer></script>
-<script src="../../assets/interactions.js" defer></script>
 
 </body>
 </html>

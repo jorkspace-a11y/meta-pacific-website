@@ -1,7 +1,8 @@
 # Meta Pacific email content
 
-Drafts prepared 9 September 2026. Requested sender is hello@metapacific.co. These
-drafts are not evidence of an active automation or a sent campaign.
+Updated 10 September 2026. Website acknowledgement is active; newsletter
+content below remains a draft. Temporary mailbox approved by the user:
+jerio@metapacific.co.
 
 ## Requested mailbox routing
 
@@ -20,7 +21,36 @@ admin session, and signs into the existing Formspree account. Inspect existing
 aliases and mail routing first; preserve existing domain mail and do not add
 a paid mailbox. A forwarding address alone does not provide outbound sending.
 
-## Configuration status
+## Verified configuration, 10 September 2026
+
+This section supersedes the historical access checks above and the previous
+OFF workflow status. The requested contact Gmail / hello alias migration is
+deferred until account access is available.
+
+- Formspree mqpkgvzw Email action is enabled with target jerio@metapacific.co.
+- HubSpot portal 247334337, form 64468752-2695-49de-97fb-0a4c14fc2dbf:
+  workflow 4883531481 is ON and the updated form was published.
+- Acknowledgement email 393634377429 uses Meta Pacific as From name,
+  jerio@metapacific.co as configured sender and verified Reply-To,
+  a separate Project inquiries subscription type, and the Primary footer.
+  Footer address was taken from the published website contact page.
+- Live homepage submission MP-ACK-20260910 reached Formspree and HubSpot.
+  Formspree notification arrived at jerio@metapacific.co. HubSpot reported
+  Delivered and the acknowledgement was found in jerio.workspace@gmail.com.
+- Reply test MP-REPLY-20260910 arrived at jerio@metapacific.co. Both the
+  acknowledgement and the reply were found in Spam. Routing works;
+  reliable inbox placement is NOT established.
+- Received From is jerio=metapacific.co@hubspotfree.na2.hs-send.com,
+  signed by hubspotfree.na2.hs-send.com. Exact branded From is not active.
+  HubSpot requires Starter to connect an email sending domain:
+  https://knowledge.hubspot.com/marketing-email/understand-email-sending-in-hubspot
+  No subscription, purchase, DNS change, or website deployment was performed
+  for this email setup. No existing contact opt-outs were overridden.
+- Newsletter signup and campaign are not live; the remaining sections are
+  content drafts. No newsletter was sent. Newsletter must remain a separate
+  affirmative opt-in, not automatic enrollment of project inquiries.
+
+## Historical configuration before activation (9 September)
 
 HubSpot form automation inspected on 9 September 2026. Created workflow
 4883531481 on the connected website form; it remains OFF with an incomplete
@@ -33,7 +63,8 @@ Do not treat this free marketing-email action as guaranteed transactional
 delivery, or change existing contacts' subscription status to force delivery.
 
 Local content below preserves the draft if the browser editor is closed.
-No email has been sent and no production website files have been changed.
+At that earlier checkpoint no email had been sent. See the verified results
+above for the subsequent activation and internal test messages.
 
 ## Website inquiry acknowledgement
 

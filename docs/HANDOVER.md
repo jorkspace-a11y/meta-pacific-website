@@ -129,6 +129,19 @@ range, website/Instagram, message.
 
 ## What to check next
 
+### Email update, 10 September 2026
+
+The earlier email-automation blocker is superseded: HubSpot form simple
+workflow 4883531481 is ON and published, sending acknowledgement email
+393634377429. Temporary inbox and Reply-To are jerio@metapacific.co, as
+approved by the user. Formspree notifications are enabled for that address.
+A real website submission and a reply were tested successfully for routing.
+The acknowledgement and reply landed in Spam, so inbox placement remains
+unresolved. HubSpot free rewrites the From address to its shared sending
+domain; custom domain authentication requires a paid subscription and was
+not activated. Newsletter remains draft only. See EMAIL-CONTENT-DRAFTS.md
+for exact test markers, configuration, and remaining limitations.
+
 1. Google Search Console → Pages report, a day or so after this was
    written, to see actual indexing status.
 2. HubSpot → Automation → Workflows, to see what's available and unblock
