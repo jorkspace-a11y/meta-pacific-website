@@ -70,9 +70,51 @@
         },
         { once: true }
       );
-      form.addEventListener("submit", function () {
+      form.addEventListener("submit", function (event) {
+        if (!form.checkValidity()) return;
+        event.preventDefault();
+        if (form.getAttribute("data-submitting") === "true") return;
+
         track("lead_form_submit", { form_name: formName });
-        submitToHubSpot(form, formName);
+        form.setAttribute("data-submitting", "true");
+        var button = form.querySelector('[type="submit"]');
+        var originalLabel = button ? button.textContent : "";
+        if (button) {
+          button.disabled = true;
+          button.textContent = "Sending…";
+        }
+        var status = form.querySelector(".form-status");
+        if (!status) {
+          status = document.createElement("p");
+          status.className = "form-status";
+          status.setAttribute("role", "status");
+          status.setAttribute("aria-live", "polite");
+          form.appendChild(status);
+        }
+        status.textContent = "";
+
+        Promise.all([submitToFormspree(form), submitToHubSpot(form, formName)])
+          .then(function () {
+            track("generate_lead", { form_name: formName, lead_source: "website_form" });
+            status.textContent = "Thanks. Your project inquiry has been received.";
+            status.classList.remove("is-error");
+            form.reset();
+          })
+          .catch(function (error) {
+            track("lead_form_error", {
+              form_name: formName,
+              destination: error && error.destination ? error.destination : "unknown",
+            });
+            status.textContent = "We could not send your inquiry. Please try again or use the WhatsApp link on this page.";
+            status.classList.add("is-error");
+          })
+          .finally(function () {
+            form.removeAttribute("data-submitting");
+            if (button) {
+              button.disabled = false;
+              button.textContent = originalLabel;
+            }
+          });
       });
     });
   }
@@ -112,6 +154,21 @@
     return el ? el.value : "";
   }
 
+  function submitToFormspree(form) {
+    return fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    }).then(function (response) {
+      if (!response.ok) {
+        var error = new Error("Formspree submission failed");
+        error.destination = "formspree";
+        throw error;
+      }
+      return response;
+    });
+  }
+
   function submitToHubSpot(form, formName) {
     var attribution = getAttribution();
     var fields = [];
@@ -142,7 +199,7 @@
       "/" +
       HUBSPOT_FORM_GUID;
     try {
-      fetch(url, {
+      return fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         keepalive: true,
@@ -151,12 +208,17 @@
           context: { pageUri: location.href, pageName: document.title },
         }),
       }).then(function (response) {
-        if (!response.ok) throw new Error("HubSpot submission failed");
-        track("generate_lead", { form_name: formName, lead_source: "website_form" });
-      }).catch(function () {
-        track("lead_form_error", { form_name: formName, destination: "hubspot" });
+        if (!response.ok) {
+          var error = new Error("HubSpot submission failed");
+          error.destination = "hubspot";
+          throw error;
+        }
+        return response;
       });
-    } catch (e) {}
+    } catch (error) {
+      error.destination = "hubspot";
+      return Promise.reject(error);
+    }
   }
 
   saveAttribution();
