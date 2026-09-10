@@ -624,9 +624,7 @@ footer {
   align-items: center;
 }
 .foot-links a:hover { color: var(--ink-strong); }
-@media (max-width: 700px) {
-  .foot-links { grid-template-columns: 1fr 1fr; row-gap: 28px; }
-}
+@
 .foot-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -792,184 +790,19 @@ button.btn { cursor: pointer; font-family: inherit; }
   font-family: var(--font-sans); font-size: 0.76rem; line-height: 1.75; color: var(--ink-soft);
 }
 
-@media (max-width: 880px) {
-  .nav-toggle { display: inline-flex; }
-  nav.bar {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: max(16px, env(safe-area-inset-left));
-    padding-right: max(16px, env(safe-area-inset-right));
-  }
-  .nav-right { display: none; }
-  .nav-shell {
-    position: fixed;
-    inset: 0;
-    top: 0;
-    padding: 88px 16px 28px;
-    background: color-mix(in srgb, var(--cream) 96%, transparent);
-    backdrop-filter: blur(22px) saturate(1.15);
-    -webkit-backdrop-filter: blur(22px) saturate(1.15);
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 18px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-8px);
-    transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out), visibility 0.22s;
-    z-index: 30;
-    max-height: none;
-    height: 100vh;
-    height: 100dvh;
-    overflow: auto;
-  }
-  nav.bar.is-menu-open .nav-shell {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: none;
-  }
-  .nav-links {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-  }
-  .nav-links > li > a,
-  .nav-trigger {
-    width: 100%;
-    justify-content: space-between;
-    padding: 14px 16px;
-    min-height: 44px;
-    border-radius: var(--radius-btn);
-    font-size: 1rem;
-  }
-  .nav-panel {
-    position: static;
-    transform: none;
-    min-width: 0;
-    width: 100%;
-    margin: 0;
-    box-shadow: none;
-    background: color-mix(in srgb, var(--cream-raised) 88%, transparent);
-    /* visibility:hidden (set above for desktop) still reserves layout
-       space in normal flow -- collapse it for real on mobile so a closed
-       accordion item takes zero height instead of leaving an invisible gap. */
-    max-height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    overflow: hidden;
-    transition: max-height 0.28s var(--ease-out), opacity 0.2s var(--ease-out), visibility 0.28s, margin 0.28s var(--ease-out), padding 0.28s var(--ease-out);
-  }
-  .nav-item.is-open .nav-panel {
-    transform: none;
-    max-height: 600px;
-    margin: 4px 0 8px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .nav-panel-grid { grid-template-columns: 1fr; }
-  .nav-shell .nav-cta-mobile {
-    display: inline-flex;
-    width: 100%;
-    margin-top: 8px;
-    min-height: 44px;
-  }
-  .pillars { grid-template-columns: 1fr 1fr; }
-  .fit-grid { grid-template-columns: 1fr; }
-  .work-grid { grid-template-columns: 1fr 1fr; }
-  .spotlight { grid-template-columns: 1fr; }
-  .insights { grid-template-columns: 1fr; }
-  .insight-minor-col { flex-direction: row; }
-  .process-row { grid-template-columns: 1fr 1fr; }
-  .contact-layout { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
-  .solutions-grid { grid-template-columns: 1fr; }
-  .story-split, .price-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 700px) {
-  .principles-row { grid-template-columns: 1fr; }
-  .stat-band { grid-template-columns: 1fr; }
-  .stat { border-right: none; border-bottom: 1px solid var(--line); }
-  .stat:last-child { border-bottom: none; }
-  .story-split, .price-grid, .whom-index { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .pillars { grid-template-columns: 1fr; }
-  .work-grid { grid-template-columns: 1fr; }
-  .process-row { grid-template-columns: 1fr; }
-  .insight-minor-col { flex-direction: column; }
-  .services-grid { grid-template-columns: 1fr; }
-  .services-grid .span-2 { grid-column: span 1; }
-  .foot-grid {
-    grid-template-columns: 1fr;
-    row-gap: 8px;
-  }
-  .foot-social, .foot-legal { justify-content: flex-start; }
-}
+@
+@
+@
 
-@media (max-width: 720px) {
-  .hero { padding: 48px 0 0; }
-  .hero-top { grid-template-columns: 1fr; gap: 22px; align-items: start; }
-  .hero-brand-mark { width: min(168px, 48vw); margin-bottom: 12px; }
-  .hero h1 { font-size: clamp(28px, 8.2vw, 34px); }
-  .hero-sub { margin-top: 18px; max-width: 36em; }
-  .hero-verticals {
-    flex-direction: column;
-    text-align: left;
-    gap: 8px;
-    padding-bottom: 0;
-  }
-  .hero-verticals span { font-size: 0.8rem; }
-  .hero-cta-row { margin-top: 28px; gap: 10px; }
-  .hero-cta-row .btn {
-    min-height: 44px;
-    flex: 1 1 calc(50% - 10px);
-    min-width: 148px;
-  }
-  .hero-plain h1 { font-size: clamp(28px, 8vw, 34px); }
-  .work-filters { gap: 8px; margin-bottom: 28px; }
-  .work-filters button { flex: 1 1 calc(50% - 8px); justify-content: center; }
-  .case-meta { gap: 16px 24px; }
-  .case-embeds { gap: 20px; }
-  .case-nav { flex-wrap: wrap; }
-  .scope-grid, .services-index { grid-template-columns: 1fr; }
-  .scope-card.span-2 { grid-column: span 1; }
-}
+@
 
-@media (min-width: 721px) and (max-width: 879px) {
-  .hero { padding: 56px 0 0; }
-  .hero-top {
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 32px;
-    align-items: end;
-  }
-  .hero-brand-mark { width: 180px; margin-bottom: 14px; }
-  .hero h1 { font-size: clamp(32px, 4.2vw, 38px); }
-  .hero-verticals { text-align: right; flex-direction: column; gap: 10px; }
-}
+@
 
-@media (min-width: 880px) {
-  .hero { padding: clamp(72px, 8vw, 112px) 0 0; }
-  .hero-cta-row { margin-top: 38px; }
-}
+@
 
-@media (min-width: 1440px) {
-  .wrap { max-width: 1320px; padding: 0 64px; }
-  nav.bar {
-    padding-left: max(64px, env(safe-area-inset-left));
-    padding-right: max(64px, env(safe-area-inset-right));
-  }
-  .hero { padding: 120px 0 0; }
-  .hero-brand-mark { width: 220px; }
-}
+@
 
-@media (min-width: 1680px) {
-  .wrap { max-width: 1400px; padding: 0 72px; }
-  .hero-brand-mark { width: 240px; }
-  :root { --section-y: clamp(88px, 9vw, 168px); }
-}
+@
 
 /* ---------- SEO architecture: hub / spoke (WMB model) ---------- */
 .crumb {
@@ -1053,9 +886,7 @@ button.btn { cursor: pointer; font-family: inherit; }
   text-transform: uppercase;
   color: var(--ink-muted);
 }
-@media (max-width: 560px) {
-  .page-plate figcaption { flex-direction: column; gap: 4px; }
-}
+@
 .case-body { max-width: 680px; margin-top: 28px; }
 .case-body p { font-size: var(--size-body); line-height: 1.75; color: var(--ink-soft); }
 .case-embeds { display: grid; gap: 28px; margin-top: 40px; }
@@ -1203,15 +1034,8 @@ button.btn { cursor: pointer; font-family: inherit; }
 .whom-card p { margin: 0; color: var(--ink-soft); line-height: 1.6; font-size: 0.95rem; }
 .whom-card .more { font-family: var(--font-sans); font-size: var(--size-caption); color: var(--ink-strong); margin-top: 8px; }
 
-@media (max-width: 880px) {
-  .story-split, .price-grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 700px) {
-  .stat-band { grid-template-columns: 1fr; }
-  .stat { border-right: none; border-bottom: 1px solid var(--line); }
-  .stat:last-child { border-bottom: none; }
-  .story-split, .price-grid, .whom-index { grid-template-columns: 1fr; }
-}
+@
+@
 
 .faq-list { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
 .faq-list details {
@@ -1248,4 +1072,210 @@ button.btn { cursor: pointer; font-family: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* ---------- Responsive breakpoints ----------
+   These live at the end on purpose. @media adds no specificity, so any
+   plain rule declared after a breakpoint overrides it at every width and
+   the breakpoint silently dies. Keep new component rules ABOVE this
+   marker. Order within this section still matters: narrower last. */
+
+media (max-width: 700px) {
+  .foot-links { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+}
+
+media (max-width: 880px) {
+  .nav-toggle { display: inline-flex; }
+  nav.bar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .nav-right { display: none; }
+  .nav-shell {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    padding: 88px 16px 28px;
+    background: color-mix(in srgb, var(--cream) 96%, transparent);
+    backdrop-filter: blur(22px) saturate(1.15);
+    -webkit-backdrop-filter: blur(22px) saturate(1.15);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 18px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.22s var(--ease-out), transform 0.22s var(--ease-out), visibility 0.22s;
+    z-index: 30;
+    max-height: none;
+    height: 100vh;
+    height: 100dvh;
+    overflow: auto;
+  }
+  nav.bar.is-menu-open .nav-shell {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+  .nav-links > li > a,
+  .nav-trigger {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 16px;
+    min-height: 44px;
+    border-radius: var(--radius-btn);
+    font-size: 1rem;
+  }
+  .nav-panel {
+    position: static;
+    transform: none;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    box-shadow: none;
+    background: color-mix(in srgb, var(--cream-raised) 88%, transparent);
+    /* visibility:hidden (set above for desktop) still reserves layout
+       space in normal flow -- collapse it for real on mobile so a closed
+       accordion item takes zero height instead of leaving an invisible gap. */
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    transition: max-height 0.28s var(--ease-out), opacity 0.2s var(--ease-out), visibility 0.28s, margin 0.28s var(--ease-out), padding 0.28s var(--ease-out);
+  }
+  .nav-item.is-open .nav-panel {
+    transform: none;
+    max-height: 600px;
+    margin: 4px 0 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .nav-panel-grid { grid-template-columns: 1fr; }
+  .nav-shell .nav-cta-mobile {
+    display: inline-flex;
+    width: 100%;
+    margin-top: 8px;
+    min-height: 44px;
+  }
+  .pillars { grid-template-columns: 1fr 1fr; }
+  .fit-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .spotlight { grid-template-columns: 1fr; }
+  .insights { grid-template-columns: 1fr; }
+  .insight-minor-col { flex-direction: row; }
+  .process-row { grid-template-columns: 1fr 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .solutions-grid { grid-template-columns: 1fr; }
+  .story-split, .price-grid { grid-template-columns: 1fr; }
+}
+
+media (max-width: 700px) {
+  .principles-row { grid-template-columns: 1fr; }
+  .stat-band { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .stat:last-child { border-bottom: none; }
+  .story-split, .price-grid, .whom-index { grid-template-columns: 1fr; }
+}
+
+media (max-width: 560px) {
+  .pillars { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: 1fr; }
+  .process-row { grid-template-columns: 1fr; }
+  .insight-minor-col { flex-direction: column; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-grid .span-2 { grid-column: span 1; }
+  .foot-grid {
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+  }
+  .foot-social, .foot-legal { justify-content: flex-start; }
+}
+
+media (max-width: 720px) {
+  .hero { padding: 48px 0 0; }
+  .hero-top { grid-template-columns: 1fr; gap: 22px; align-items: start; }
+  .hero-brand-mark { width: min(168px, 48vw); margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(28px, 8.2vw, 34px); }
+  .hero-sub { margin-top: 18px; max-width: 36em; }
+  .hero-verticals {
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+    padding-bottom: 0;
+  }
+  .hero-verticals span { font-size: 0.8rem; }
+  .hero-cta-row { margin-top: 28px; gap: 10px; }
+  .hero-cta-row .btn {
+    min-height: 44px;
+    flex: 1 1 calc(50% - 10px);
+    min-width: 148px;
+  }
+  .hero-plain h1 { font-size: clamp(28px, 8vw, 34px); }
+  .work-filters { gap: 8px; margin-bottom: 28px; }
+  .work-filters button { flex: 1 1 calc(50% - 8px); justify-content: center; }
+  .case-meta { gap: 16px 24px; }
+  .case-embeds { gap: 20px; }
+  .case-nav { flex-wrap: wrap; }
+  .scope-grid, .services-index { grid-template-columns: 1fr; }
+  .scope-card.span-2 { grid-column: span 1; }
+}
+
+media (min-width: 721px) and (max-width: 879px) {
+  .hero { padding: 56px 0 0; }
+  .hero-top {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 32px;
+    align-items: end;
+  }
+  .hero-brand-mark { width: 180px; margin-bottom: 14px; }
+  .hero h1 { font-size: clamp(32px, 4.2vw, 38px); }
+  .hero-verticals { text-align: right; flex-direction: column; gap: 10px; }
+}
+
+media (min-width: 880px) {
+  .hero { padding: clamp(72px, 8vw, 112px) 0 0; }
+  .hero-cta-row { margin-top: 38px; }
+}
+
+media (min-width: 1440px) {
+  .wrap { max-width: 1320px; padding: 0 64px; }
+  nav.bar {
+    padding-left: max(64px, env(safe-area-inset-left));
+    padding-right: max(64px, env(safe-area-inset-right));
+  }
+  .hero { padding: 120px 0 0; }
+  .hero-brand-mark { width: 220px; }
+}
+
+media (min-width: 1680px) {
+  .wrap { max-width: 1400px; padding: 0 72px; }
+  .hero-brand-mark { width: 240px; }
+  :root { --section-y: clamp(88px, 9vw, 168px); }
+}
+
+media (max-width: 560px) {
+  .page-plate figcaption { flex-direction: column; gap: 4px; }
+}
+
+media (max-width: 880px) {
+  .story-split, .price-grid { grid-template-columns: 1fr; }
+}
+
+media (max-width: 700px) {
+  .stat-band { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--line); }
+  .stat:last-child { border-bottom: none; }
+  .story-split, .price-grid, .whom-index { grid-template-columns: 1fr; }
 }

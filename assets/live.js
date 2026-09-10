@@ -2,15 +2,23 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var hasGSAP = typeof window.gsap !== "undefined";
 
+  // Single source of truth. live.css parks exactly these at opacity 0 as the
+  // reveal's "before" state, so anything listed there must be listed here or
+  // it stays invisible forever. Two whole sections were lost that way: the
+  // .process-step cards on About and Values sit in .principles-row, and the
+  // reveal was scoped to .process-row, so nothing ever brought them back.
+  // Reveal selectors below are class-only for the same reason: the container
+  // an element happens to sit in must not decide whether it is visible.
+  var REVEAL_TARGETS =
+    ".hero-brand-mark, .hero h1, .hero-verticals, .hero-sub, .hero-cta-row, " +
+    ".capture-panel, .work-item, .process-step, .pillar, .fit-card, " +
+    ".insight-featured, .insight-minor, .solution-card, .price-card, " +
+    ".scope-card, .custom-card, .stat, .faq-list details";
+
   if (!hasGSAP) {
     // GSAP failed to load (CDN down, offline, etc). Fail open: show
     // everything instead of leaving content stuck at the CSS hidden state.
-    document.querySelectorAll(
-      ".hero-brand-mark, .hero h1, .hero-verticals, .hero-sub, .hero-cta-row, " +
-        ".capture-panel, .work-item, .process-step, .pillar, .fit-card, " +
-        ".insight-featured, .insight-minor, .solution-card, .price-card, " +
-        ".scope-card, .custom-card, .stat, .faq-list details"
-    ).forEach(function (el) {
+    document.querySelectorAll(REVEAL_TARGETS).forEach(function (el) {
       el.style.opacity = "1";
       el.style.transform = "none";
     });
@@ -22,13 +30,7 @@
 
   if (reduce) {
     // Respect the OS setting: land in final state, no motion at all.
-    gsap.set(
-      ".hero-brand-mark, .hero h1, .hero-verticals, .hero-sub, .hero-cta-row, " +
-        ".capture-panel, .work-item, .process-step, .pillar, .fit-card, " +
-        ".insight-featured, .insight-minor, .solution-card, .price-card, " +
-        ".scope-card, .custom-card, .stat, .faq-list details",
-      { opacity: 1, x: 0, y: 0, clearProps: "transform" }
-    );
+    gsap.set(REVEAL_TARGETS, { opacity: 1, x: 0, y: 0, clearProps: "transform" });
     var line = document.querySelector(".capture-panel .flight-line");
     if (line) line.style.strokeDashoffset = 0;
     return;
@@ -62,30 +64,44 @@
   // when far below the fold, firing onEnter instantly for all of them.
   // Plain create() verified correct in isolation; stagger is done by hand.
   function reveal(selector, opts) {
-    var els = gsap.utils.toArray(selector);
     var stagger = (opts && opts.stagger) || 0.08;
-    els.forEach(function (el, i) {
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 88%",
-        once: true,
-        onEnter: function () {
-          gsap.to(el, {
-            opacity: 1,
-            y: 0,
-            duration: 0.55,
-            ease: ease,
-            delay: i * stagger,
-            overwrite: true,
-          });
-        },
+    // Stagger is counted per parent, so a page with two rows of cards does not
+    // hand the second row a delay inherited from the first.
+    var groups = [];
+    var parents = [];
+    gsap.utils.toArray(selector).forEach(function (el) {
+      var idx = parents.indexOf(el.parentNode);
+      if (idx === -1) {
+        parents.push(el.parentNode);
+        groups.push([el]);
+      } else {
+        groups[idx].push(el);
+      }
+    });
+    groups.forEach(function (els) {
+      els.forEach(function (el, i) {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 88%",
+          once: true,
+          onEnter: function () {
+            gsap.to(el, {
+              opacity: 1,
+              y: 0,
+              duration: 0.55,
+              ease: ease,
+              delay: i * stagger,
+              overwrite: true,
+            });
+          },
+        });
       });
     });
   }
 
   function setUpReveals() {
-    reveal(".work-grid .work-item");
-    reveal(".process-row .process-step", { stagger: 0.06 });
+    reveal(".work-item");
+    reveal(".process-step", { stagger: 0.06 });
     reveal(".pillar");
     reveal(".fit-card");
     reveal(".insight-featured, .insight-minor");
@@ -93,8 +109,19 @@
     reveal(".price-card");
     reveal(".scope-card");
     reveal(".custom-card");
-    reveal(".stat-band .stat", { stagger: 0.1 });
+    reveal(".stat", { stagger: 0.1 });
     reveal(".faq-list details", { stagger: 0.05 });
+
+    // Last line of defence. If live.css ever parks something the list above
+    // does not cover, show it rather than lose the section. Runs once, well
+    // after the reveals have had their chance to fire.
+    setTimeout(function () {
+      document.querySelectorAll(REVEAL_TARGETS).forEach(function (el) {
+        if (parseFloat(getComputedStyle(el).opacity) > 0.01) return;
+        if (el.getBoundingClientRect().top > window.innerHeight * 1.5) return;
+        gsap.to(el, { opacity: 1, y: 0, duration: 0.4, ease: ease });
+      });
+    }, 2500);
   }
   function deferredSetUp() {
     // A short delay after load, not the load event itself: layout can still
