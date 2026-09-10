@@ -1080,11 +1080,11 @@ button.btn { cursor: pointer; font-family: inherit; }
    the breakpoint silently dies. Keep new component rules ABOVE this
    marker. Order within this section still matters: narrower last. */
 
-media (max-width: 700px) {
+@media (max-width: 700px) {
   .foot-links { grid-template-columns: 1fr 1fr; row-gap: 28px; }
 }
 
-media (max-width: 880px) {
+@media (max-width: 880px) {
   .nav-toggle { display: inline-flex; }
   nav.bar {
     padding-top: 10px;
@@ -1181,7 +1181,7 @@ media (max-width: 880px) {
   .story-split, .price-grid { grid-template-columns: 1fr; }
 }
 
-media (max-width: 700px) {
+@media (max-width: 700px) {
   .principles-row { grid-template-columns: 1fr; }
   .stat-band { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid var(--line); }
@@ -1189,7 +1189,7 @@ media (max-width: 700px) {
   .story-split, .price-grid, .whom-index { grid-template-columns: 1fr; }
 }
 
-media (max-width: 560px) {
+@media (max-width: 560px) {
   .pillars { grid-template-columns: 1fr; }
   .work-grid { grid-template-columns: 1fr; }
   .process-row { grid-template-columns: 1fr; }
@@ -1203,7 +1203,7 @@ media (max-width: 560px) {
   .foot-social, .foot-legal { justify-content: flex-start; }
 }
 
-media (max-width: 720px) {
+@media (max-width: 720px) {
   .hero { padding: 48px 0 0; }
   .hero-top { grid-template-columns: 1fr; gap: 22px; align-items: start; }
   .hero-brand-mark { width: min(168px, 48vw); margin-bottom: 12px; }
@@ -1232,7 +1232,7 @@ media (max-width: 720px) {
   .scope-card.span-2 { grid-column: span 1; }
 }
 
-media (min-width: 721px) and (max-width: 879px) {
+@media (min-width: 721px) and (max-width: 879px) {
   .hero { padding: 56px 0 0; }
   .hero-top {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -1244,12 +1244,12 @@ media (min-width: 721px) and (max-width: 879px) {
   .hero-verticals { text-align: right; flex-direction: column; gap: 10px; }
 }
 
-media (min-width: 880px) {
+@media (min-width: 880px) {
   .hero { padding: clamp(72px, 8vw, 112px) 0 0; }
   .hero-cta-row { margin-top: 38px; }
 }
 
-media (min-width: 1440px) {
+@media (min-width: 1440px) {
   .wrap { max-width: 1320px; padding: 0 64px; }
   nav.bar {
     padding-left: max(64px, env(safe-area-inset-left));
@@ -1259,21 +1259,21 @@ media (min-width: 1440px) {
   .hero-brand-mark { width: 220px; }
 }
 
-media (min-width: 1680px) {
+@media (min-width: 1680px) {
   .wrap { max-width: 1400px; padding: 0 72px; }
   .hero-brand-mark { width: 240px; }
   :root { --section-y: clamp(88px, 9vw, 168px); }
 }
 
-media (max-width: 560px) {
+@media (max-width: 560px) {
   .page-plate figcaption { flex-direction: column; gap: 4px; }
 }
 
-media (max-width: 880px) {
+@media (max-width: 880px) {
   .story-split, .price-grid { grid-template-columns: 1fr; }
 }
 
-media (max-width: 700px) {
+@media (max-width: 700px) {
   .stat-band { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid var(--line); }
   .stat:last-child { border-bottom: none; }
