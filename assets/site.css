@@ -1664,7 +1664,7 @@ button.btn { cursor: pointer; font-family: inherit; }
   .work-plate { min-height: 160px; }
   .related-mosaic { grid-template-columns: 1fr 1fr; }
   .work-feature,
-  .work-feature-copy { min-height: calc(100svh - 4.75rem); }
+  .work-feature-copy { min-height: 0; height: 100%; }
   .case-hero { min-height: 78vh; }
   .process-row { grid-template-columns: 1fr; }
   .insight-minor-col { flex-direction: column; }
@@ -1719,7 +1719,8 @@ button.btn { cursor: pointer; font-family: inherit; }
   .case-embeds { gap: 12px; }
   .case-embeds.is-pair { grid-template-columns: 1fr; }
   .case-hero h1 { font-size: clamp(36px, 12vw, 52px); }
-  .work-feature-copy h2 { font-size: clamp(36px, 14vw, 56px); }
+  .work-feature-copy h2 { font-size: clamp(32px, 12vw, 48px); }
+  .work-feature-copy { padding-bottom: 5.25rem; }
   .case-nav { flex-wrap: wrap; }
   .scope-grid, .services-index { grid-template-columns: 1fr; }
   .scope-card.span-2 { grid-column: span 1; }
