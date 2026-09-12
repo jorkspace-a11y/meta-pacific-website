@@ -1714,7 +1714,7 @@ button.btn { cursor: pointer; font-family: inherit; }
   .work-cover-bar .work-filters { margin: 0; width: 100%; }
   .work-feature .work-play { display: none; }
   .work-feature,
-  .work-feature-copy { min-height: calc(100svh - 4.75rem); }
+  .work-feature-copy { min-height: 0; height: 100%; }
   .case-meta { gap: 16px 24px; }
   .case-embeds { gap: 12px; }
   .case-embeds.is-pair { grid-template-columns: 1fr; }
