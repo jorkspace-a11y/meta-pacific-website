@@ -38,7 +38,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="../assets/site.css?v=20260912-4">
+<link rel="stylesheet" href="../assets/site.css?v=20260912-5">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Work | Meta Pacific", "url": "https://metapacific.co/work/"}</script>
 </head>
 <body>
@@ -161,19 +161,20 @@
 </header>
 <main>
   <section class="work-cover">
-    <div class="wrap work-cover-bar">
-      <div>
-        <p class="crumb"><a href="../index.html">Home</a> / <span>Work</span></p>
-        <h1>Selected work.</h1>
+    <div class="work-cover-stage">
+      <div class="wrap work-cover-bar">
+        <div>
+          <p class="crumb"><a href="../index.html">Home</a> / <span>Work</span></p>
+          <h1>Selected work.</h1>
+        </div>
+        <div class="work-filters" data-work-filters>
+          <button type="button" data-filter="all" class="is-on" aria-pressed="true">All</button>
+          <button type="button" data-filter="developments" aria-pressed="false">Developments</button>
+          <button type="button" data-filter="land" aria-pressed="false">Land</button>
+          <button type="button" data-filter="villas" aria-pressed="false">Villas</button>
+        </div>
       </div>
-      <div class="work-filters" data-work-filters>
-        <button type="button" data-filter="all" class="is-on" aria-pressed="true">All</button>
-        <button type="button" data-filter="developments" aria-pressed="false">Developments</button>
-        <button type="button" data-filter="land" aria-pressed="false">Land</button>
-        <button type="button" data-filter="villas" aria-pressed="false">Villas</button>
-      </div>
-    </div>
-    <a class="work-feature" data-work-item data-cat="developments" href="../work/01-anjuna-bay/">
+      <a class="work-feature" data-work-item data-cat="developments" href="../work/01-anjuna-bay/">
       <div class="work-feature-still">
         <img src="../assets/work/anjuna-fpv.jpg" alt="FPV tour of Anjuna Bay development" width="405" height="720">
       </div>
@@ -185,6 +186,7 @@
       </div>
       <span class="work-play" aria-hidden="true"><svg viewBox="0 0 12 12" fill="currentColor"><path d="M2.5 1.2v9.6L10.5 6z"/></svg></span>
     </a>
+    </div>
     <div class="work-sheet">
       <div class="work-grid work-mosaic">
         <a class="work-item is-wide" data-work-item data-cat="villas" href="../work/06-sardine-rote/">
