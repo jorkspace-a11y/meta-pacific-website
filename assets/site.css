@@ -620,7 +620,7 @@ section {
   display: block;
   overflow: hidden;
   margin: 0 0 36px;
-  min-height: min(72vh, 720px);
+  min-height: max(420px, calc(100dvh - 320px));
   background: #000000;
   color: #ede9de;
   text-decoration: none;
@@ -651,12 +651,12 @@ section {
 .work-feature-copy {
   position: relative;
   z-index: 1;
-  min-height: min(72vh, 720px);
+  min-height: max(420px, calc(100dvh - 320px));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-top: clamp(28px, 5vw, 56px);
-  padding-bottom: clamp(28px, 5vw, 56px);
+  padding-top: clamp(20px, 4vw, 40px);
+  padding-bottom: clamp(20px, 3vw, 32px);
   max-width: 1240px;
 }
 .work-feature-copy .label { color: #ede9de99; }
@@ -976,6 +976,9 @@ button.btn { cursor: pointer; font-family: inherit; }
 
 /* ---------- Services page ---------- */
 .hero-plain { padding: clamp(48px, 8vw, 120px) 0 clamp(40px, 7vw, 96px); }
+.hero-archive { padding: clamp(20px, 4vw, 36px) 0 0; }
+.hero-archive .hero-sub { margin-top: 12px; max-width: 40em; }
+.hero-archive + .rule-top { padding-top: 20px; }
 .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .services-grid .span-2 { grid-column: span 2; }
 .card-note {
@@ -1027,7 +1030,7 @@ button.btn { cursor: pointer; font-family: inherit; }
 .crumb span { color: var(--ink-soft); }
 
 .work-filters {
-  display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 36px;
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px;
 }
 .work-filters button {
   font-family: var(--font-sans); font-size: var(--size-caption); font-weight: 400;
@@ -1464,8 +1467,8 @@ button.btn { cursor: pointer; font-family: inherit; }
   .work-item.is-lead .work-thumb,
   .work-item.is-wide .work-thumb { aspect-ratio: 4 / 5; }
   .work-item.is-wide .work-thumb { aspect-ratio: 16 / 10; }
-  .work-feature { min-height: 70vh; }
-  .work-feature-copy { min-height: 70vh; }
+  .work-feature,
+  .work-feature-copy { min-height: max(300px, calc(100dvh - 28rem)); }
   .case-hero { min-height: 78vh; }
   .process-row { grid-template-columns: 1fr; }
   .insight-minor-col { flex-direction: column; }
@@ -1515,7 +1518,9 @@ button.btn { cursor: pointer; font-family: inherit; }
   .case-embeds { gap: 20px; }
   .case-embeds.is-pair { grid-template-columns: 1fr; }
   .case-hero h1 { font-size: clamp(32px, 10vw, 42px); }
-  .work-feature-copy h2 { font-size: clamp(32px, 10vw, 48px); }
+  .work-feature-copy h2 { font-size: clamp(28px, 9vw, 40px); }
+  .work-feature,
+  .work-feature-copy { min-height: max(300px, calc(100dvh - 28rem)); }
   .case-nav { flex-wrap: wrap; }
   .scope-grid, .services-index { grid-template-columns: 1fr; }
   .scope-card.span-2 { grid-column: span 1; }
