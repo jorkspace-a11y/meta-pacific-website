@@ -544,6 +544,8 @@ section {
 .work-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
 }
+#work .work-grid { gap: 3px; }
+#work .work-thumb { border: 0; }
 .work-grid.work-grid-stack { grid-template-columns: 1fr; }
 .work-item {
   display: flex; flex-direction: column; text-decoration: none; color: inherit;
@@ -631,7 +633,7 @@ section {
   display: block;
   overflow: hidden;
   margin: 0;
-  min-height: max(420px, calc(100dvh - 320px));
+  min-height: max(520px, calc(100dvh - 168px));
   background: #000000;
   color: #ede9de;
   text-decoration: none;
@@ -679,7 +681,7 @@ section {
 .work-feature-copy {
   position: relative;
   z-index: 1;
-  min-height: max(420px, calc(100dvh - 320px));
+  min-height: max(520px, calc(100dvh - 168px));
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1036,6 +1038,21 @@ button.btn { cursor: pointer; font-family: inherit; }
 .hero-archive { padding: clamp(20px, 4vw, 36px) 0 0; }
 .hero-archive .hero-sub { margin-top: 12px; max-width: 40em; }
 .hero-archive + .rule-top { padding-top: 20px; }
+.work-cover-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px 32px;
+  flex-wrap: wrap;
+  padding: 18px 0 14px;
+}
+.work-cover-bar h1 {
+  margin: 4px 0 0;
+  font-size: clamp(22px, 3vw, 28px);
+  letter-spacing: -0.03em;
+}
+.work-cover-bar .crumb { margin: 0; }
+.work-cover-bar .work-filters { margin: 0; }
 .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .services-grid .span-2 { grid-column: span 2; }
 .card-note {
@@ -1166,9 +1183,43 @@ button.btn { cursor: pointer; font-family: inherit; }
 }
 .case-film .wrap { padding-top: 0; }
 .case-film .case-embeds { margin-top: 0; }
+.case-spread {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  background: #000000;
+  align-items: stretch;
+}
+.case-spread-film {
+  padding: clamp(16px, 3vw, 28px);
+  background: #000000;
+}
+.case-spread-film .case-embeds { margin-top: 0; gap: 12px; }
+.case-spread-film .case-embeds.is-pair { grid-template-columns: 1fr; }
+.case-spread-page {
+  background: #ffffff;
+  padding: clamp(32px, 5vw, 72px) clamp(24px, 4vw, 56px);
+  display: flex;
+  align-items: center;
+}
+.case-spread .case-body {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  background: transparent;
+}
+.case-spread + section {
+  padding-top: clamp(36px, 6vw, 72px);
+}
 .case-film + section {
   padding-top: clamp(36px, 6vw, 72px);
 }
+.related-mosaic {
+  grid-template-columns: repeat(2, minmax(0, 280px));
+  gap: 3px;
+  max-width: 564px;
+}
+.related-mosaic .work-meta h3 { font-size: 1.05rem; }
 /* Case study plate: the project's own frame, sized so it is never upscaled
    past what the source can carry. The virtual tour stills are 640 square, the
    FPV frames are 405x720 phone footage, so --plate-w is set per shape rather
@@ -1527,6 +1578,7 @@ button.btn { cursor: pointer; font-family: inherit; }
   .work-item.is-lead,
   .work-mosaic .work-item.is-wide,
   .work-mosaic .work-plate.is-wide { grid-column: span 2; }
+  .case-spread { grid-template-columns: 1fr; }
   .case-embeds.is-pair { grid-template-columns: 1fr; }
   .spotlight { grid-template-columns: 1fr; }
   .insights { grid-template-columns: 1fr; }
@@ -1558,7 +1610,7 @@ button.btn { cursor: pointer; font-family: inherit; }
   .work-item.is-wide .work-thumb { aspect-ratio: 16 / 10; }
   .work-plate { min-height: 160px; }
   .work-feature,
-  .work-feature-copy { min-height: max(300px, calc(100dvh - 28rem)); }
+  .work-feature-copy { min-height: max(340px, calc(100dvh - 14rem)); }
   .case-hero { min-height: 78vh; }
   .process-row { grid-template-columns: 1fr; }
   .insight-minor-col { flex-direction: column; }
@@ -1604,13 +1656,14 @@ button.btn { cursor: pointer; font-family: inherit; }
   .hero-plain h1 { font-size: clamp(28px, 8vw, 34px); }
   .work-filters { gap: 8px; margin-bottom: 16px; }
   .work-filters button { flex: 1 1 calc(50% - 8px); justify-content: center; }
+  .work-cover-bar .work-filters { margin: 0; width: 100%; }
   .case-meta { gap: 16px 24px; }
   .case-embeds { gap: 12px; }
   .case-embeds.is-pair { grid-template-columns: 1fr; }
   .case-hero h1 { font-size: clamp(36px, 12vw, 52px); }
   .work-feature-copy h2 { font-size: clamp(36px, 14vw, 56px); }
   .work-feature,
-  .work-feature-copy { min-height: max(300px, calc(100dvh - 28rem)); }
+  .work-feature-copy { min-height: max(340px, calc(100dvh - 16rem)); }
   .case-nav { flex-wrap: wrap; }
   .scope-grid, .services-index { grid-template-columns: 1fr; }
   .scope-card.span-2 { grid-column: span 1; }
