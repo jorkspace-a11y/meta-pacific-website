@@ -1609,6 +1609,7 @@ button.btn { cursor: pointer; font-family: inherit; }
   .work-item.is-wide .work-thumb { aspect-ratio: 4 / 5; }
   .work-item.is-wide .work-thumb { aspect-ratio: 16 / 10; }
   .work-plate { min-height: 160px; }
+  .related-mosaic { grid-template-columns: 1fr 1fr; }
   .work-feature,
   .work-feature-copy { min-height: max(340px, calc(100dvh - 14rem)); }
   .case-hero { min-height: 78vh; }
