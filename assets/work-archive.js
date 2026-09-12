@@ -13,6 +13,8 @@
     items.forEach(function (item) {
       var show = filter === "all" || item.getAttribute("data-cat") === filter;
       item.hidden = !show;
+      if (show) item.removeAttribute("aria-hidden");
+      else item.setAttribute("aria-hidden", "true");
     });
   }
 
